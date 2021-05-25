@@ -12,17 +12,14 @@
 
 void main(void) {
     
-    TRISDbits.TRISD3 = 1;
-    LATDbits.LATD3 = 0;
+    ADCON1 = 0x0F; //Disable all analog inputs
+    TRISDbits.RD2 = 0;
     
-    while (1) 
-    {
-        LATDbits.LATD3 = 1;
-        __delay_ms(100);
-        LATDbits.LATD3 = 0;
-        __delay_ms(100);
-    }
+    while(1) {
 
-    
-    return;
+        LATDbits.LATD3 = 1;
+        __delay_ms(500);
+        LATDbits.LATD3 = 0;
+        __delay_ms(500);
+    }
 }
