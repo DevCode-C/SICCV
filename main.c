@@ -6,9 +6,9 @@
  */
 
 
-#include "Config.h"
-#include "pic18f4550.h"
-#define _XTAL_FREQ 48000000
+#include "Config.h"         // Configuracion de los #Pragma
+#include "pic18f4550.h"     // Agregamos la libreria del microcontrolador que estamos usando 
+#define _XTAL_FREQ 48000000 // Definimos la frecuencia que estamos usando 
 
 void main(void) {
     
