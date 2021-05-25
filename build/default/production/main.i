@@ -5706,6 +5706,17 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 
+
 void main(void) {
-    return;
+
+    ADCON1 = 0x0F;
+    TRISDbits.RD2 = 0;
+
+    while(1) {
+
+        LATDbits.LATD3 = 1;
+        _delay((unsigned long)((500)*(48000000/4000.0)));
+        LATDbits.LATD3 = 0;
+        _delay((unsigned long)((500)*(48000000/4000.0)));
+    }
 }
