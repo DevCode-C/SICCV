@@ -12,7 +12,17 @@
 
 void main(void) {
     
+    TRISDbits.TRISD3 = 1;
+    LATDbits.LATD3 = 0;
     
+    while (1) 
+    {
+        LATDbits.LATD3 = 1;
+        __delay_ms(100);
+        LATDbits.LATD3 = 0;
+        __delay_ms(100);
+    }
+
     
     return;
 }
