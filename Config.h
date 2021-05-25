@@ -22,7 +22,7 @@
 /* 
  * File:        Config.h
  * Author:      Paredes Camargo Emmanuel
- * Comments:    Configuration of #Pragma Registers
+ * Comments:    Configuration of #Pragma 
  * Revision history: 
  */
 
