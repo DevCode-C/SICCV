@@ -5,6 +5,7 @@
  * Created on May 25, 2021, 7:14 PM
  */
 
+#include <pic18.h>
 #include "HeaderApp/adc.h"
 
 void adcInit(void)
@@ -25,11 +26,25 @@ void adcInit(void)
     /*
      Select A/D acquisition time
     */
-    ADCON2bits.ACQT = 0b110;
+    ADCON2bits.ACQT = 0b010;
     
     /*
      conversion clock
     */
-    ADCON2bits.ADCS = 0b010;
+    ADCON2bits.ADCS = 3;
     
+    /**/
+    ADCON2bits.ADFM = 1;
+    ADC_ENABLE();
+}
+
+uint16_t adcGetValue(void)
+{
+    __delay_ms(1);
+    GO_nDONE = 1;
+    while(ADCON0bits.GO_DONE)
+    {
+    
+    }
+    return ADRES;
 }
