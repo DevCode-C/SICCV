@@ -6,20 +6,22 @@
  */
 
 
-#include "HeaderApp/Config.h"         // Configuracion de los #Pragma
-#include "pic18f4550.h"     // Agregamos la libreria del microcontrolador que estamos usando 
-#define _XTAL_FREQ 48000000 // Definimos la frecuencia que estamos usando 
-
+#include "HeaderApp/Config.h"           // Configuracion de los #Pragma
+#include "pic18f4550.h"                 // Agregamos la libreria del microcontrolador que estamos usando 
+#include "HeaderApp/adc.h"
 void main(void) {
     
-    ADCON1 = 0x0F; //Disable all analog inputs
-    TRISDbits.RD2 = 0;
-    
+//    ADCON1 = 0x0F;
+    TRISAbits.TRISA0 = 1;
+    TRISAbits.TRISA2 = 0;
+    TRISD = 0x00;
+    adcInit();
     while(1) {
 
-        LATDbits.LATD3 = 1;
+        LATD = (uint8_t)adcGetValue();
+        LATAbits.LA2 = 1;
         __delay_ms(500);
-        LATDbits.LATD3 = 0;
+        LATAbits.LA2 = 0;
         __delay_ms(500);
     }
 }
