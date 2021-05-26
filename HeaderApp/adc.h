@@ -10,11 +10,11 @@
     /*
         Inicializa el perifico ADC
     */
-    void adcInit(void);
+    void adcInit(uint8_t ADC_PINs);
     
     /*
      Retorna el valor del Puerto ADC
     */
-    uint16_t adcGetValue(void);
+    uint16_t adcGetValue(uint8_t PinADC);
     
 #endif

@@ -8,20 +8,22 @@
 #include <pic18.h>
 #include "HeaderApp/adc.h"
 
-void adcInit(void)
+void adcInit(uint8_t ADC_PINs)
 {
-    /**/
-    ADCON1bits.PCFG = 0b0001;
-   
+    /*Habilitacion de pines analogicos*/
+    if(ADC_PINs == 0)
+    {
+        ADCON1bits.PCFG = 0b1110;
+    }
+    else
+    {
+        ADCON1bits.PCFG = 15 - ADC_PINs;
+    }
+    
     /*
      Registro que configura la referencia de voltaje del puerto ADC
     */
     ADCON1bits.VCFG = 0b00;
-    
-    /*
-     Registro que configura el pin como analogico
-    */
-    ADCON0bits.CHS = 0b0000;    
     
     /*
      Select A/D acquisition time
@@ -38,9 +40,13 @@ void adcInit(void)
     ADC_ENABLE();
 }
 
-uint16_t adcGetValue(void)
+uint16_t adcGetValue(uint8_t PinADC)
 {
-    __delay_ms(1);
+    /*
+     Registro que configura el pin como analogico
+    */
+    ADCON0bits.CHS = PinADC; 
+    __delay_ms(2);
     GO_nDONE = 1;
     while(ADCON0bits.GO_DONE)
     {

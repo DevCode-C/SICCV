@@ -13,14 +13,16 @@ void main(void) {
     
 //    ADCON1 = 0x0F;
     TRISAbits.TRISA0 = 1;
+    TRISAbits.TRISA1 = 1;
     TRISAbits.TRISA2 = 0;
     TRISD = 0x00;
-    adcInit();
+    adcInit(2);
     while(1) {
 
-        LATD = (uint8_t)adcGetValue();
+        LATD = (uint8_t)adcGetValue(0);
         LATAbits.LA2 = 1;
         __delay_ms(500);
+        LATD = (uint8_t)adcGetValue(1);
         LATAbits.LA2 = 0;
         __delay_ms(500);
     }

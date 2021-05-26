@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "adc.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
+# 1 "adc.c" 2
 
 
 
@@ -14,9 +14,15 @@
 
 
 
+# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\pic18.h" 1 3
 
-# 1 "./HeaderApp/Config.h" 1
-# 34 "./HeaderApp/Config.h"
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\htc.h" 1 3
+
+
+
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -127,15 +133,7 @@ extern void __builtin_software_breakpoint(void);
 
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\pic18.h" 1 3
-
-
-
-
-# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\xc.h" 1 3
+# 33 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\xc.h" 2 3
 # 5 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\htc.h" 2 3
 # 6 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\pic18.h" 2 3
 
@@ -5632,78 +5630,7 @@ extern __attribute__((nonreentrant)) void _delay(unsigned long);
 extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
-# 33 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\xc.h" 2 3
-# 34 "./HeaderApp/Config.h" 2
-
-
-
-
-
-
-
-
-#pragma config PLLDIV = 3
-#pragma config CPUDIV = OSC1_PLL2
-#pragma config USBDIV = 1
-
-
-#pragma config FOSC = HSPLL_HS
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOR = OFF
-#pragma config BORV = 3
-#pragma config VREGEN = OFF
-
-
-#pragma config WDT = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config CCP2MX = ON
-#pragma config PBADEN = OFF
-#pragma config LPT1OSC = OFF
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config ICPRT = OFF
-#pragma config XINST = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = OFF
-# 9 "main.c" 2
-
+# 8 "adc.c" 2
 
 # 1 "./HeaderApp/adc.h" 1
 
@@ -5800,23 +5727,52 @@ typedef uint32_t uint_fast32_t;
 
 
     uint16_t adcGetValue(uint8_t PinADC);
-# 11 "main.c" 2
-
-void main(void) {
+# 9 "adc.c" 2
 
 
-    TRISAbits.TRISA0 = 1;
-    TRISAbits.TRISA1 = 1;
-    TRISAbits.TRISA2 = 0;
-    TRISD = 0x00;
-    adcInit(2);
-    while(1) {
+void adcInit(uint8_t ADC_PINs)
+{
 
-        LATD = (uint8_t)adcGetValue(0);
-        LATAbits.LA2 = 1;
-        _delay((unsigned long)((500)*(48000000/4000.0)));
-        LATD = (uint8_t)adcGetValue(1);
-        LATAbits.LA2 = 0;
-        _delay((unsigned long)((500)*(48000000/4000.0)));
+    if(ADC_PINs == 0)
+    {
+        ADCON1bits.PCFG = 0b1110;
     }
+    else
+    {
+        ADCON1bits.PCFG = 15 - ADC_PINs;
+    }
+
+
+
+
+    ADCON1bits.VCFG = 0b00;
+
+
+
+
+    ADCON2bits.ACQT = 0b010;
+
+
+
+
+    ADCON2bits.ADCS = 3;
+
+
+    ADCON2bits.ADFM = 1;
+    ADCON0bits.ADON = 1;
+}
+
+uint16_t adcGetValue(uint8_t PinADC)
+{
+
+
+
+    ADCON0bits.CHS = PinADC;
+    _delay((unsigned long)((2)*(48000000/4000.0)));
+    GO_nDONE = 1;
+    while(ADCON0bits.GO_DONE)
+    {
+
+    }
+    return ADRES;
 }
