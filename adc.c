@@ -42,15 +42,11 @@ void adcInit(uint8_t ADC_PINs)
 
 uint16_t adcGetValue(uint8_t PinADC)
 {
-    /*
-     Registro que configura el pin como analogico
-    */
     ADCON0bits.CHS = PinADC; 
     __delay_ms(2);
     GO_nDONE = 1;
     while(ADCON0bits.GO_DONE)
     {
-    
     }
     return ADRES;
 }

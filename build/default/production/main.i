@@ -5802,6 +5802,19 @@ typedef uint32_t uint_fast32_t;
     uint16_t adcGetValue(uint8_t PinADC);
 # 11 "main.c" 2
 
+# 1 "./HeaderApp/lcd.h" 1
+# 25 "./HeaderApp/lcd.h"
+    void Lcd_Init(void);
+
+    void Lcd_Out(uint8_t y, uint8_t x, const int8_t *buffer);
+
+    void Lcd_Out2(uint8_t y, uint8_t x, int8_t *buffer);
+
+    void Lcd_Chr_CP(int8_t data);
+
+    void Lcd_Cmd(uint8_t data);
+# 12 "main.c" 2
+
 void main(void) {
 
 

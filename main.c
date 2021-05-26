@@ -9,6 +9,7 @@
 #include "HeaderApp/Config.h"           // Configuracion de los #Pragma
 #include "pic18f4550.h"                 // Agregamos la libreria del microcontrolador que estamos usando 
 #include "HeaderApp/adc.h"
+#include "HeaderApp/lcd.h"
 void main(void) {
     
 //    ADCON1 = 0x0F;
@@ -27,4 +28,3 @@ void main(void) {
         __delay_ms(500);
     }
 }
-//Hola mundo 

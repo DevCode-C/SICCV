@@ -1,4 +1,4 @@
-# 1 "adc.c"
+# 1 "lcd.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "adc.c" 2
+# 1 "lcd.c" 2
 
 
 
@@ -5630,9 +5630,10 @@ extern __attribute__((nonreentrant)) void _delay(unsigned long);
 extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
-# 8 "adc.c" 2
+# 8 "lcd.c" 2
 
-# 1 "./HeaderApp/adc.h" 1
+
+# 1 "./HeaderApp/lcd.h" 1
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdint.h" 1 3
 # 22 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdint.h" 3
@@ -5719,56 +5720,181 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 144 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c99\\stdint.h" 2 3
-# 2 "./HeaderApp/adc.h" 2
-# 13 "./HeaderApp/adc.h"
-    void adcInit(uint8_t ADC_PINs);
+# 2 "./HeaderApp/lcd.h" 2
+# 25 "./HeaderApp/lcd.h"
+    void Lcd_Init(void);
 
+    void Lcd_Out(uint8_t y, uint8_t x, const int8_t *buffer);
 
+    void Lcd_Out2(uint8_t y, uint8_t x, int8_t *buffer);
 
+    void Lcd_Chr_CP(int8_t data);
 
-    uint16_t adcGetValue(uint8_t PinADC);
-# 9 "adc.c" 2
-
-
-void adcInit(uint8_t ADC_PINs)
+    void Lcd_Cmd(uint8_t data);
+# 10 "lcd.c" 2
+# 31 "lcd.c"
+void Lcd_Init(void)
 {
-
-    if(ADC_PINs == 0)
-    {
-        ADCON1bits.PCFG = 0b1110;
+    TRISDbits.TRISD7 = 0;
+    TRISDbits.TRISD6 = 0;
+    TRISDbits.TRISD5 = 0;
+    TRISDbits.TRISD4 = 0;
+    TRISDbits.TRISD3 = 0;
+    TRISDbits.TRISD2 = 0;
+    _delay((unsigned long)((34)*(48000000/4000.0)));
+    for (uint8_t i = 0; i < 4; i++) {
+        LATDbits.LD7 = 0;
+        LATDbits.LD6 = 0;
+        LATDbits.LD5 = 1;
+        LATDbits.LD4 = 1;
+        LATDbits.LD3 = 0;
+        LATDbits.LD2 = 0;
+        LATDbits.LD7 = 0;
+        LATDbits.LD6 = 0;
+        LATDbits.LD5 = 1;
+        LATDbits.LD4 = 1;
+        LATDbits.LD3 = 1;
+        LATDbits.LD2 = 0;
+        _delay((unsigned long)((5)*(48000000/4000000.0)));
+        LATDbits.LD7 = 0;
+        LATDbits.LD6 = 0;
+        LATDbits.LD5 = 1;
+        LATDbits.LD4 = 1;
+        LATDbits.LD3 = 0;
+        LATDbits.LD2 = 0;
+        _delay((unsigned long)((5500)*(48000000/4000000.0)));
     }
-    else
-    {
-        ADCON1bits.PCFG = 15 - ADC_PINs;
-    }
+    LATDbits.LD7 = 0;
+    LATDbits.LD6 = 0;
+    LATDbits.LD5 = 1;
+    LATDbits.LD4 = 0;
+    LATDbits.LD3 = 0;
+    LATDbits.LD2 = 0;
+    LATDbits.LD7 = 0;
+    LATDbits.LD6 = 0;
+    LATDbits.LD5 = 1;
+    LATDbits.LD4 = 0;
+    LATDbits.LD3 = 1;
+    LATDbits.LD2 = 0;
+    _delay((unsigned long)((5)*(48000000/4000000.0)));
+    LATDbits.LD7 = 0;
+    LATDbits.LD6 = 0;
+    LATDbits.LD5 = 1;
+    LATDbits.LD4 = 0;
+    LATDbits.LD3 = 0;
+    LATDbits.LD2 = 0;
+    _delay((unsigned long)((5500)*(48000000/4000000.0)));
 
+    uint8_t data = 0;
+    data = 40;
+    Lcd_Cmd(data);
+    data = 16;
+    Lcd_Cmd(data);
+    data = 1;
+    Lcd_Cmd(data);
+    data = 15;
+    Lcd_Cmd(data);
 
-
-
-    ADCON1bits.VCFG = 0b00;
-
-
-
-
-    ADCON2bits.ACQT = 0b010;
-
-
-
-
-    ADCON2bits.ADCS = 3;
-
-
-    ADCON2bits.ADFM = 1;
-    ADCON0bits.ADON = 1;
 }
 
-uint16_t adcGetValue(uint8_t PinADC)
+void Lcd_Out(uint8_t y, uint8_t x, const int8_t *buffer)
 {
-    ADCON0bits.CHS = PinADC;
-    _delay((unsigned long)((2)*(48000000/4000.0)));
-    GO_nDONE = 1;
-    while(ADCON0bits.GO_DONE)
+    uint8_t data;
+    switch (y)
     {
+        case 1:
+            data = 128 + x;
+            break;
+        case 2:
+            data = 192 + x;
+            break;
+        case 3:
+            data = 148 + x;
+            break;
+        case 4:
+            data = 212 + x;
+            break;
+        default: break;
     }
-    return ADRES;
+
+    Lcd_Cmd(data);
+    while(*buffer)
+    {
+        Lcd_Chr_CP(*buffer);
+        buffer++;
+    }
+}
+
+void Lcd_Out2(uint8_t y, uint8_t x, int8_t *buffer)
+{
+    uint8_t data;
+    switch (y)
+    {
+        case 1:
+            data = 128 + x;
+            break;
+        case 2:
+            data = 192 + x;
+            break;
+        case 3:
+            data = 148 + x;
+            break;
+        case 4:
+            data = 212 + x;
+            break;
+        default: break;
+    }
+
+    Lcd_Cmd(data);
+    while(*buffer)
+    {
+        Lcd_Chr_CP(*buffer);
+        buffer++;
+    }
+}
+
+void Lcd_Chr_CP(int8_t data)
+{
+    LATDbits.LD3 = 0;
+    LATDbits.LD2 = 1;
+    LATDbits.LD7 = (data & 0b10000000)>>7;
+    LATDbits.LD6 = (data & 0b01000000)>>6;
+    LATDbits.LD5 = (data & 0b00100000)>>5;
+    LATDbits.LD4 = (data & 0b00010000)>>4;
+    _delay(10);
+    LATDbits.LD3 = 1;
+    _delay((unsigned long)((5)*(48000000/4000000.0)));
+    LATDbits.LD3 = 0;
+    LATDbits.LD7 = (data & 0b00001000)>>3;
+    LATDbits.LD6 = (data & 0b00000100)>>2;
+    LATDbits.LD5 = (data & 0b00000010)>>1;
+    LATDbits.LD4 = (data & 0b00000001);
+    _delay(10);
+    LATDbits.LD3 = 1;
+    _delay((unsigned long)((5)*(48000000/4000000.0)));
+    LATDbits.LD3 = 0;
+    _delay((unsigned long)((5)*(48000000/4000000.0)));
+    _delay((unsigned long)((5500)*(48000000/4000000.0)));
+}
+
+void Lcd_Cmd(uint8_t data)
+{
+    LATDbits.LD3 = 0; LATDbits.LD2 = 0;
+    LATDbits.LD7 = (data & 0b10000000)>>7;
+    LATDbits.LD6 = (data & 0b01000000)>>6;
+    LATDbits.LD5 = (data & 0b00100000)>>5;
+    LATDbits.LD4 = (data & 0b00010000)>>4;
+    _delay(10);
+    LATDbits.LD3 = 1;
+    _delay((unsigned long)((5)*(48000000/4000000.0)));
+    LATDbits.LD3 = 0;
+    LATDbits.LD7 = (data & 0b00001000)>>3;
+    LATDbits.LD6 = (data & 0b00000100)>>2;
+    LATDbits.LD5 = (data & 0b00000010)>>1;
+    LATDbits.LD4 = (data & 0b00000001);
+    _delay(10);
+    LATDbits.LD3 = 1;
+    _delay((unsigned long)((5)*(48000000/4000000.0)));
+    LATDbits.LD3 = 0;
+    _delay((unsigned long)((5500)*(48000000/4000000.0)));
 }
