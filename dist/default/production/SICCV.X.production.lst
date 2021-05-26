@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Wed May 26 00:43:24 2021
+                                                                                               Wed May 26 18:37:00 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	18F4550
@@ -63,15 +63,15 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
     49  0000                     _ADRES	set	4035
     50  0000                     _PORTBbits	set	3969
     51  0000                     _PORTB	set	3969
-    52  0000                     _LATDbits	set	3980
-    53  0000                     _TRISDbits	set	3989
-    54  0000                     _ADCON0bits	set	4034
-    55  0000                     _ADCON2bits	set	4032
-    56  0000                     _ADCON1bits	set	4033
-    57  0000                     _LATAbits	set	3977
-    58  0000                     _LATD	set	3980
-    59  0000                     _TRISD	set	3989
-    60  0000                     _TRISAbits	set	3986
+    52  0000                     _LATAbits	set	3977
+    53  0000                     _LATD	set	3980
+    54  0000                     _TRISD	set	3989
+    55  0000                     _TRISAbits	set	3986
+    56  0000                     _LATDbits	set	3980
+    57  0000                     _TRISDbits	set	3989
+    58  0000                     _ADCON0bits	set	4034
+    59  0000                     _ADCON2bits	set	4032
+    60  0000                     _ADCON1bits	set	4033
     61  0000                     _GO_nDONE	set	32273
     62                           
     63                           ; #config settings
@@ -385,14 +385,14 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    370  007F3E                     
    371                           ;adc.c: 47:     GO_nDONE = 1;
    372  007F3E  82C2               	bsf	4034,1,c	;volatile
-   373  007F40                     l42:
+   373  007F40                     l20:
    374                           
    375                           ;adc.c: 48:     while(ADCON0bits.GO_DONE)
    376  007F40  B2C2               	btfsc	194,1,c	;volatile
    377  007F42  EFA5  F03F         	goto	u171
    378  007F46  EFA7  F03F         	goto	u170
    379  007F4A                     u171:
-   380  007F4A  EFA0  F03F         	goto	l42
+   380  007F4A  EFA0  F03F         	goto	l20
    381  007F4E                     u170:
    382  007F4E                     
    383                           ;adc.c: 51:     return ADRES;
@@ -743,10 +743,10 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Wed May 26 00:43:24 2021
+Symbol Table                                                                                   Wed May 26 18:37:00 2021
 
-                     l42 7F40                       l44 7F4E                       l45 7F56  
-                     l39 7F9E                       u10 7F6A                       u11 7F66  
+                     l20 7F40                       l22 7F4E                       l23 7F56  
+                     l17 7F9E                       u10 7F6A                       u11 7F66  
                     l801 7F86                      l803 7F8A                      l805 7F92  
                     l807 7F9A                      l809 7F9C                      l795 7F5A  
                     l797 7F6A                      l799 7F76          adcInit@ADC_PINs 0002  
