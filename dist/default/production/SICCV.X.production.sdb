@@ -41,11 +41,13 @@
 [v _main main `(v  1 e 1 0 ]
 "3 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
 [v _servoInit servoInit `(v  1 e 1 0 ]
-"16
-[v _iniciarTest iniciarTest `(v  1 e 1 0 ]
+"11
+[v _setServoAngle setServoAngle `(v  1 e 1 0 ]
+"34
+[v _setServo setServo `(v  1 e 1 0 ]
 "2453 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4550.h
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
-[s S219 . 1 `uc 1 RB0 1 0 :1:0 
+[s S220 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -55,7 +57,7 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "2483
-[s S228 . 1 `uc 1 INT0 1 0 :1:0 
+[s S229 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -63,12 +65,12 @@
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S236 . 1 `uc 1 . 1 0 :3:0 
+[s S237 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S239 . 1 `S219 1 . 1 0 `S228 1 . 1 0 `S236 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES239  1 e 1 @3969 ]
-[s S511 . 1 `uc 1 LATB0 1 0 :1:0 
+[u S240 . 1 `S220 1 . 1 0 `S229 1 . 1 0 `S237 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES240  1 e 1 @3969 ]
+[s S512 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -78,7 +80,7 @@
 `uc 1 LATB7 1 0 :1:7 
 ]
 "3100
-[s S520 . 1 `uc 1 LB0 1 0 :1:0 
+[s S521 . 1 `uc 1 LB0 1 0 :1:0 
 `uc 1 LB1 1 0 :1:1 
 `uc 1 LB2 1 0 :1:2 
 `uc 1 LB3 1 0 :1:3 
@@ -87,9 +89,9 @@
 `uc 1 LB6 1 0 :1:6 
 `uc 1 LB7 1 0 :1:7 
 ]
-[u S529 . 1 `S511 1 . 1 0 `S520 1 . 1 0 ]
-[v _LATBbits LATBbits `VES529  1 e 1 @3978 ]
-[s S316 . 1 `uc 1 LATD0 1 0 :1:0 
+[u S530 . 1 `S512 1 . 1 0 `S521 1 . 1 0 ]
+[v _LATBbits LATBbits `VES530  1 e 1 @3978 ]
+[s S317 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -99,7 +101,7 @@
 `uc 1 LATD7 1 0 :1:7 
 ]
 "3290
-[s S325 . 1 `uc 1 LD0 1 0 :1:0 
+[s S326 . 1 `uc 1 LD0 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 `uc 1 LD2 1 0 :1:2 
 `uc 1 LD3 1 0 :1:3 
@@ -108,8 +110,8 @@
 `uc 1 LD6 1 0 :1:6 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S334 . 1 `S316 1 . 1 0 `S325 1 . 1 0 ]
-[v _LATDbits LATDbits `VES334  1 e 1 @3980 ]
+[u S335 . 1 `S317 1 . 1 0 `S326 1 . 1 0 ]
+[v _LATDbits LATDbits `VES335  1 e 1 @3980 ]
 [s S422 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
@@ -120,9 +122,9 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "3657
-[u S440 . 1 `S422 1 . 1 0 `S219 1 . 1 0 ]
+[u S440 . 1 `S422 1 . 1 0 `S220 1 . 1 0 ]
 [v _TRISBbits TRISBbits `VES440  1 e 1 @3987 ]
-[s S274 . 1 `uc 1 TRISD0 1 0 :1:0 
+[s S275 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -132,7 +134,7 @@
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "4033
-[s S283 . 1 `uc 1 RD0 1 0 :1:0 
+[s S284 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -141,8 +143,8 @@
 `uc 1 RD6 1 0 :1:6 
 `uc 1 RD7 1 0 :1:7 
 ]
-[u S292 . 1 `S274 1 . 1 0 `S283 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES292  1 e 1 @3989 ]
+[u S293 . 1 `S275 1 . 1 0 `S284 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES293  1 e 1 @3989 ]
 [s S59 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
@@ -210,7 +212,7 @@
 [v _ADCON0bits ADCON0bits `VES116  1 e 1 @4034 ]
 "6785
 [v _ADRES ADRES `VEus  1 e 2 @4035 ]
-[s S395 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S396 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -218,15 +220,15 @@
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "8089
-[s S402 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S403 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S406 . 1 `S395 1 . 1 0 `S402 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES406  1 e 1 @4053 ]
+[u S407 . 1 `S396 1 . 1 0 `S403 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES407  1 e 1 @4053 ]
 "8139
 [v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
-[s S462 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S463 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -236,7 +238,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "8614
-[s S471 . 1 `uc 1 . 1 0 :1:0 
+[s S472 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -245,28 +247,44 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S480 . 1 `uc 1 . 1 0 :6:0 
+[s S481 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S484 . 1 `S462 1 . 1 0 `S471 1 . 1 0 `S480 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES484  1 e 1 @4082 ]
+[u S485 . 1 `S463 1 . 1 0 `S472 1 . 1 0 `S481 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES485  1 e 1 @4082 ]
 "9765
 [v _GO_nDONE GO_nDONE `VEb  1 e 0 @32273 ]
 "18 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"43
+"47
 } 0
-"3 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+"34 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+[v _setServo setServo `(v  1 e 1 0 ]
+{
+[v setServo@angle angle `uc  1 a 1 wreg ]
+"36
+[v setServo@i i `uc  1 a 1 3 ]
+"34
+[v setServo@angle angle `uc  1 a 1 wreg ]
+"36
+[v setServo@angle angle `uc  1 a 1 2 ]
+"40
+} 0
+"11
+[v _setServoAngle setServoAngle `(v  1 e 1 0 ]
+{
+[v setServoAngle@angle angle `uc  1 a 1 wreg ]
+[v setServoAngle@angle angle `uc  1 a 1 wreg ]
+"13
+[v setServoAngle@angle angle `uc  1 a 1 1 ]
+"32
+} 0
+"3
 [v _servoInit servoInit `(v  1 e 1 0 ]
 {
-"10
-} 0
-"16
-[v _iniciarTest iniciarTest `(v  1 e 1 0 ]
-{
-"31
+"9
 } 0
 "11 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\adc.c
 [v _adcInit adcInit `(v  1 e 1 0 ]

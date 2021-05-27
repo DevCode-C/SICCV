@@ -36,7 +36,11 @@ void main(void)
 //        sprintf((char *)buffer_lcd,"ADC2:%d",entero);
 //        Lcd_Out2(2,0,(int8_t*)buffer_lcd);
 //        __delay_ms(100);
-        iniciarTest();
+        setServo(D180);
+        
+        __delay_ms(1000);
+        setServo(D0);
+        __delay_ms(1000);
 //        __delay_ms(100);
     }
     return;
