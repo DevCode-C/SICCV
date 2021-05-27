@@ -3,20 +3,6 @@
 [d edition pro ]
 [d chip 18F4550 ]
 [d frameptr 4065 ]
-"14 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X/HeaderApp/lcd.h
-[v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
-"36
-[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
-"45
-[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
-"51
-[v _lcd_gotoxy lcd_gotoxy `(v  1 e 1 0 ]
-"72
-[v _lcd_init lcd_init `(v  1 e 1 0 ]
-"91
-[v _lcd_write_char lcd_write_char `(v  1 e 1 0 ]
-"107
-[v _lcd_putc lcd_putc `(v  1 e 1 0 ]
 "11 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\adc.c
 [v _adcInit adcInit `(v  1 e 1 0 ]
 "43
@@ -69,11 +55,21 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
+"31 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\flex_lcd.c
+[v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
+"95
+[v _Lcd_Out Lcd_Out `(v  1 e 1 0 ]
+"123
+[v _Lcd_Out2 Lcd_Out2 `(v  1 e 1 0 ]
+"151
+[v _Lcd_Chr_CP Lcd_Chr_CP `(v  1 e 1 0 ]
+"175
+[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
 "23 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "2453 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4550.h
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
-[s S284 . 1 `uc 1 RB0 1 0 :1:0 
+[s S229 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -83,7 +79,7 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "2483
-[s S293 . 1 `uc 1 INT0 1 0 :1:0 
+[s S238 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -91,12 +87,12 @@
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S301 . 1 `uc 1 . 1 0 :3:0 
+[s S246 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S304 . 1 `S284 1 . 1 0 `S293 1 . 1 0 `S301 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES304  1 e 1 @3969 ]
-[s S182 . 1 `uc 1 LATD0 1 0 :1:0 
+[u S249 . 1 `S229 1 . 1 0 `S238 1 . 1 0 `S246 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES249  1 e 1 @3969 ]
+[s S326 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -106,7 +102,7 @@
 `uc 1 LATD7 1 0 :1:7 
 ]
 "3290
-[s S191 . 1 `uc 1 LD0 1 0 :1:0 
+[s S335 . 1 `uc 1 LD0 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 `uc 1 LD2 1 0 :1:2 
 `uc 1 LD3 1 0 :1:3 
@@ -115,10 +111,29 @@
 `uc 1 LD6 1 0 :1:6 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S200 . 1 `S182 1 . 1 0 `S191 1 . 1 0 ]
-[v _LATDbits LATDbits `VES200  1 e 1 @3980 ]
-"4001
-[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[u S344 . 1 `S326 1 . 1 0 `S335 1 . 1 0 ]
+[v _LATDbits LATDbits `VES344  1 e 1 @3980 ]
+[s S284 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"4033
+[s S293 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+[u S302 . 1 `S284 1 . 1 0 `S293 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES302  1 e 1 @3989 ]
 [s S59 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
@@ -199,18 +214,18 @@
 "19 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
 [v _entero entero `us  1 e 2 0 ]
 "20
-[v _buffer_lcd buffer_lcd `[20]uc  1 e 20 0 ]
+[v _buffer_lcd buffer_lcd `[16]uc  1 e 16 0 ]
 "23
 [v _main main `(v  1 e 1 0 ]
 {
-"49
+"47
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[s S776 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[s S842 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
 "13
-[v sprintf@f f `S776  1 a 6 4 ]
+[v sprintf@f f `S842  1 a 6 4 ]
 "12
 [v sprintf@ap ap `[1]*.39v  1 a 2 2 ]
 "9
@@ -223,9 +238,9 @@
 {
 "1393
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 85 ]
-[s S802 _IO_FILE 0 ]
+[s S868 _IO_FILE 0 ]
 "1390
-[v vfprintf@fp fp `*.39S802  1 p 2 79 ]
+[v vfprintf@fp fp `*.39S868  1 p 2 79 ]
 [v vfprintf@fmt fmt `*.25Cuc  1 p 2 81 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 83 ]
 "1404
@@ -235,9 +250,9 @@
 {
 "696
 [v vfpfcnvrt@ll ll `o  1 a 8 71 ]
-[s S802 _IO_FILE 0 ]
+[s S868 _IO_FILE 0 ]
 "692
-[v vfpfcnvrt@fp fp `*.39S802  1 p 2 63 ]
+[v vfpfcnvrt@fp fp `*.39S868  1 p 2 63 ]
 [v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 65 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 67 ]
 "1387
@@ -252,9 +267,9 @@
 [v dtoa@s s `i  1 a 2 51 ]
 [v dtoa@w w `i  1 a 2 49 ]
 [v dtoa@p p `i  1 a 2 47 ]
-[s S802 _IO_FILE 0 ]
+[s S868 _IO_FILE 0 ]
 "287
-[v dtoa@fp fp `*.39S802  1 p 2 27 ]
+[v dtoa@fp fp `*.39S868  1 p 2 27 ]
 [v dtoa@d d `o  1 p 8 29 ]
 "328
 } 0
@@ -264,9 +279,9 @@
 "74
 [v pad@w w `i  1 a 2 25 ]
 [v pad@i i `i  1 a 2 23 ]
-[s S802 _IO_FILE 0 ]
+[s S868 _IO_FILE 0 ]
 "72
-[v pad@fp fp `*.39S802  1 p 2 16 ]
+[v pad@fp fp `*.39S868  1 p 2 16 ]
 [v pad@buf buf `*.39uc  1 p 2 18 ]
 [v pad@p p `i  1 p 2 20 ]
 "95
@@ -289,16 +304,16 @@
 [v fputs@c c `uc  1 a 1 13 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 9 ]
-[s S776 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputs@fp fp `*.39S776  1 p 2 11 ]
+[s S842 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputs@fp fp `*.39S842  1 p 2 11 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[s S776 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputc@fp fp `*.39S776  1 p 2 2 ]
+[s S842 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputc@fp fp `*.39S842  1 p 2 2 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\putch.c
@@ -336,71 +351,6 @@
 [v ___aodiv@divisor divisor `o  1 p 8 8 ]
 "43
 } 0
-"107 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X/HeaderApp/lcd.h
-[v _lcd_putc lcd_putc `(v  1 e 1 0 ]
-{
-"109
-[v lcd_putc@i i `i  1 a 2 8 ]
-"107
-[v lcd_putc@a a `*.35uc  1 p 2 4 ]
-"112
-} 0
-"91
-[v _lcd_write_char lcd_write_char `(v  1 e 1 0 ]
-{
-[v lcd_write_char@a a `uc  1 a 1 wreg ]
-"93
-[v lcd_write_char@y y `uc  1 a 1 2 ]
-[v lcd_write_char@temp temp `uc  1 a 1 1 ]
-"91
-[v lcd_write_char@a a `uc  1 a 1 wreg ]
-"94
-[v lcd_write_char@a a `uc  1 a 1 3 ]
-"105
-} 0
-"72
-[v _lcd_init lcd_init `(v  1 e 1 0 ]
-{
-"89
-} 0
-"51
-[v _lcd_gotoxy lcd_gotoxy `(v  1 e 1 0 ]
-{
-[v lcd_gotoxy@a a `uc  1 a 1 wreg ]
-"53
-[v lcd_gotoxy@temp temp `uc  1 a 1 7 ]
-[v lcd_gotoxy@y y `uc  1 a 1 6 ]
-[v lcd_gotoxy@z z `uc  1 a 1 5 ]
-"51
-[v lcd_gotoxy@a a `uc  1 a 1 wreg ]
-[v lcd_gotoxy@b b `uc  1 p 1 3 ]
-"54
-[v lcd_gotoxy@a a `uc  1 a 1 4 ]
-"70
-} 0
-"45
-[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
-{
-"49
-} 0
-"36
-[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
-{
-[v Lcd_Cmd@a a `uc  1 a 1 wreg ]
-[v Lcd_Cmd@a a `uc  1 a 1 wreg ]
-"38
-[v Lcd_Cmd@a a `uc  1 a 1 2 ]
-"43
-} 0
-"14
-[v _Lcd_Port Lcd_Port `(v  1 e 1 0 ]
-{
-[v Lcd_Port@a a `uc  1 a 1 wreg ]
-[v Lcd_Port@a a `uc  1 a 1 wreg ]
-"16
-[v Lcd_Port@a a `uc  1 a 1 0 ]
-"35
-} 0
 "11 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\adc.c
 [v _adcInit adcInit `(v  1 e 1 0 ]
 {
@@ -418,4 +368,55 @@
 "45
 [v adcGetValue@PinADC PinADC `uc  1 a 1 3 ]
 "52
+} 0
+"123 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\flex_lcd.c
+[v _Lcd_Out2 Lcd_Out2 `(v  1 e 1 0 ]
+{
+[v Lcd_Out2@y y `uc  1 a 1 wreg ]
+"125
+[v Lcd_Out2@data data `uc  1 a 1 9 ]
+"123
+[v Lcd_Out2@y y `uc  1 a 1 wreg ]
+[v Lcd_Out2@x x `uc  1 p 1 3 ]
+[v Lcd_Out2@buffer buffer `*.39c  1 p 2 4 ]
+[v Lcd_Out2@y y `uc  1 a 1 8 ]
+"149
+} 0
+"95
+[v _Lcd_Out Lcd_Out `(v  1 e 1 0 ]
+{
+[v Lcd_Out@y y `uc  1 a 1 wreg ]
+"97
+[v Lcd_Out@data data `uc  1 a 1 9 ]
+"95
+[v Lcd_Out@y y `uc  1 a 1 wreg ]
+[v Lcd_Out@x x `uc  1 p 1 3 ]
+[v Lcd_Out@buffer buffer `*.25Cc  1 p 2 4 ]
+[v Lcd_Out@y y `uc  1 a 1 8 ]
+"121
+} 0
+"151
+[v _Lcd_Chr_CP Lcd_Chr_CP `(v  1 e 1 0 ]
+{
+[v Lcd_Chr_CP@data data `c  1 a 1 wreg ]
+[v Lcd_Chr_CP@data data `c  1 a 1 wreg ]
+"153
+[v Lcd_Chr_CP@data data `c  1 a 1 2 ]
+"173
+} 0
+"31
+[v _Lcd_Init Lcd_Init `(v  1 e 1 0 ]
+{
+"40
+[v Lcd_Init@i i `uc  1 a 1 4 ]
+"93
+} 0
+"175
+[v _Lcd_Cmd Lcd_Cmd `(v  1 e 1 0 ]
+{
+[v Lcd_Cmd@data data `uc  1 a 1 wreg ]
+[v Lcd_Cmd@data data `uc  1 a 1 wreg ]
+"177
+[v Lcd_Cmd@data data `uc  1 a 1 2 ]
+"195
 } 0

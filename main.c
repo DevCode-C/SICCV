@@ -5,44 +5,42 @@
  * Created on May 25, 2021, 3:49 PM
  */
 
-
+#define _XTAL_FREQ 12000000
 #include "HeaderApp/Config.h"           // Configuracion de los #Pragma
 #include "pic18f4550.h"                 // Agregamos la libreria del microcontrolador que estamos usando 
 #include "HeaderApp/adc.h"
-#include "HeaderApp/lcd.h"
+//#include "HeaderApp/lcd.h"
+#include "HeaderApp/flex_lcd.h"
 #include <stdlib.h>
 #include <stdio.h>
-#define _XTAL_FREQ 12000000
+
 
 /****************Variables a utilizar*********/
-float decimal= 4.47;
-uint16_t entero=20;
-char buffer_lcd[20];
+uint16_t entero;
+uint8_t buffer_lcd[16];
 
 /****************Funci?n Principal*************/
 void main(void)
 {
-    TRISD=0x00;               //Configuramos el Puerto D como salida digital.
-    lcd_init();               //Inicializamos la pantalla LCD.
-    adcInit(2);
-    lcd_clear();          //Limpiamos pantalla LCD
-    lcd_gotoxy(1,1);      //Ubicamos el cursor en fila 1, columna 1
-    lcd_putc("**IDE MPLAB X**");  //mostramos una cadena de caracteres en la pantalla LCD
-    lcd_gotoxy(2,1);      //Ubicamos el cursor en fila2, columna 1
-    lcd_putc("******XC8******");  //mostramos una cadena de caracteres en la pantalla LCD
+    Lcd_Init();
+    Lcd_Cmd(LCD_CLEAR);
+    Lcd_Cmd(LCD_CURSOR_OFF);
+     __delay_ms(100);
+     Lcd_Out(1,1,(int8_t *)"Bienvenido :*");
+    Lcd_Out(2,1,(int8_t *)"*Calculadora*");
     __delay_ms(1000);
-    lcd_clear();
-    while(1)                  //Bucle Infinito 
+    Lcd_Cmd(LCD_CLEAR);
+    __delay_ms(100);
+    adcInit(2);
+    while(1)                  
     {
         entero = adcGetValue(0);
-        sprintf(buffer_lcd,"ADC1:%d",entero);
-        lcd_gotoxy(1,1);
-        lcd_putc(buffer_lcd);
+        sprintf((char *)buffer_lcd,"ADC1:%d",entero);
+        Lcd_Out2(1,0,(int8_t*)buffer_lcd);
         __delay_ms(100);
         entero = adcGetValue(1);
-        sprintf(buffer_lcd,"ADC2:%d",entero);
-        lcd_gotoxy(2,1);
-        lcd_putc(buffer_lcd);
+        sprintf((char *)buffer_lcd,"ADC2:%d",entero);
+        Lcd_Out2(2,0,(int8_t*)buffer_lcd);
         __delay_ms(100);
     }
     return;
