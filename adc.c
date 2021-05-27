@@ -5,7 +5,7 @@
  * Created on May 25, 2021, 7:14 PM
  */
 
-#include <pic18.h>
+#include <xc.h>
 #include "HeaderApp/adc.h"
 
 void adcInit(uint8_t ADC_PINs)

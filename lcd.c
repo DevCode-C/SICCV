@@ -4,192 +4,118 @@
  *
  * Created on May 25, 2021, 11:28 PM
  */
-
-#include <pic18.h>
-
+#define _XTAL_FREQ 48000000
 #include "HeaderApp/lcd.h"
 
-//Se necesita verificar si algun pin tiene alguna otra conexion que se necesite.
-#define TRISRD7     TRISDbits.TRISD7
-#define LCD_LD7     LATDbits.LD7      // D7
-
-#define TRISRD6     TRISDbits.TRISD6
-#define LCD_LD6     LATDbits.LD6       // D6
-
-#define TRISRD5     TRISDbits.TRISD5
-#define LCD_LD5     LATDbits.LD5       // D5
-
-#define TRISRD4     TRISDbits.TRISD4
-#define LCD_LD4     LATDbits.LD4      // D4
-
-#define TRISEN      TRISDbits.TRISD3
-#define LCD_EN      LATDbits.LD3       // EN
-
-#define TRISRS      TRISDbits.TRISD2
-#define LCD_RS      LATDbits.LD2       // RS
-
-void Lcd_Init(void)
+void Lcd_Port(char a)
 {
-    TRISRD7 = 0;
-    TRISRD6 = 0;
-    TRISRD5 = 0;
-    TRISRD4 = 0;
-    TRISEN = 0;
-    TRISRS = 0;
-    __delay_ms(34);
-    for (uint8_t i = 0; i < 4; i++) {
-        LCD_LD7 = 0;
-        LCD_LD6 = 0;
-        LCD_LD5 = 1;
-        LCD_LD4 = 1;
-        LCD_EN = 0;
-        LCD_RS = 0;
-        LCD_LD7 = 0;
-        LCD_LD6 = 0;
-        LCD_LD5 = 1;
-        LCD_LD4 = 1;
-        LCD_EN = 1;
-        LCD_RS = 0;
-        __delay_us(5);
-        LCD_LD7 = 0;
-        LCD_LD6 = 0;
-        LCD_LD5 = 1;
-        LCD_LD4 = 1;
-        LCD_EN = 0;
-        LCD_RS = 0;
-        __delay_us(5500);
-    }
-    LCD_LD7 = 0; 
-    LCD_LD6 = 0; 
-    LCD_LD5 = 1; 
-    LCD_LD4 = 0; 
-    LCD_EN = 0; 
-    LCD_RS = 0;
-    LCD_LD7 = 0; 
-    LCD_LD6 = 0; 
-    LCD_LD5 = 1; 
-    LCD_LD4 = 0; 
-    LCD_EN = 1; 
-    LCD_RS = 0;
-    __delay_us(5);
-    LCD_LD7 = 0; 
-    LCD_LD6 = 0; 
-    LCD_LD5 = 1; 
-    LCD_LD4 = 0; 
-    LCD_EN = 0; 
-    LCD_RS = 0;
-    __delay_us(5500);
-    
-    uint8_t data = 0;
-    data = 40;
-    Lcd_Cmd(data);
-    data = 16;
-    Lcd_Cmd(data);
-    data = 1;
-    Lcd_Cmd(data);
-    data = 15;
-    Lcd_Cmd(data);
-    
+   if(a & 1)
+      D4 = 1;
+   else
+      D4 = 0;
+
+   if(a & 2)
+      D5 = 1;
+   else
+      D5 = 0;
+
+   if(a & 4)
+      D6 = 1;
+   else
+      D6 = 0;
+
+   if(a & 8)
+      D7 = 1;
+   else
+      D7 = 0;
+}
+void Lcd_Cmd(char a)
+{
+   RS = 0;             // => RS = 0
+   Lcd_Port(a);
+   EN  = 1;             // => E = 1
+        __delay_ms(4);
+        EN  = 0;             // => E = 0
 }
 
-void Lcd_Out(uint8_t y, uint8_t x, const int8_t *buffer)
+
+void lcd_clear(void)
 {
-    uint8_t data;
-    switch (y)
-    {
-        case 1: 
-            data = 128 + x;
-            break;
-        case 2: 
-            data = 192 + x; 
-            break;
-        case 3:
-            data = 148 + x;
-            break;
-        case 4: 
-            data = 212 + x;
-            break;
-        default: break;
-    }
-    
-    Lcd_Cmd(data);
-    while(*buffer)              // Write data to LCD up to null
-    {                
-        Lcd_Chr_CP(*buffer);
-        buffer++;               // Increment buffer
-    }
+   Lcd_Cmd(0);
+   Lcd_Cmd(1);
 }
 
-void Lcd_Out2(uint8_t y, uint8_t x, int8_t *buffer)
+void lcd_gotoxy(char a, char b)
 {
-    uint8_t data;
-    switch (y)
-    {
-        case 1: 
-            data = 128 + x;
-            break;
-        case 2: 
-            data = 192 + x; 
-            break;
-        case 3:
-            data = 148 + x;
-            break;
-        case 4: 
-            data = 212 + x;
-            break;
-        default: break;
-    }
-    
-    Lcd_Cmd(data);
-    while(*buffer)              // Write data to LCD up to null
-    {                
-        Lcd_Chr_CP(*buffer);
-        buffer++;               // Increment buffer
-    }
+   char temp,z,y;
+   if(a == 1)
+   {
+     temp = 0x80 + b - 1;
+      z = temp>>4;
+      y = temp & 0x0F;
+      Lcd_Cmd(z);
+      Lcd_Cmd(y);
+   }
+   else if(a == 2)
+   {
+      temp = 0xC0 + b - 1;
+      z = temp>>4;
+      y = temp & 0x0F;
+      Lcd_Cmd(z);
+      Lcd_Cmd(y);
+   }
 }
 
-void Lcd_Chr_CP(int8_t data)
+void lcd_init()
 {
-    LCD_EN = 0;
-    LCD_RS = 1;
-    LCD_LD7 = (data & 0b10000000)>>7;
-    LCD_LD6 = (data & 0b01000000)>>6;
-    LCD_LD5 = (data & 0b00100000)>>5;
-    LCD_LD4 = (data & 0b00010000)>>4;
-    _delay(10);
-    LCD_EN = 1;
-    __delay_us(5);
-    LCD_EN = 0;
-    LCD_LD7 = (data & 0b00001000)>>3;
-    LCD_LD6 = (data & 0b00000100)>>2;
-    LCD_LD5 = (data & 0b00000010)>>1;
-    LCD_LD4 = (data & 0b00000001);
-    _delay(10);
-    LCD_EN = 1;
-    __delay_us(5); 
-    LCD_EN = 0;
-    __delay_us(5);
-    __delay_us(5500);
+  Lcd_Port(0x00);
+   __delay_ms(20);
+  Lcd_Cmd(0x03);
+   __delay_ms(5);
+  Lcd_Cmd(0x03);
+   __delay_ms(11);
+  Lcd_Cmd(0x03);
+  /////////////////////////////////////////////////////
+  Lcd_Cmd(0x02);
+  Lcd_Cmd(0x02);
+  Lcd_Cmd(0x08);
+  Lcd_Cmd(0x00);
+  Lcd_Cmd(0x0C);
+  Lcd_Cmd(0x00);
+  Lcd_Cmd(0x06);
 }
 
-void Lcd_Cmd(uint8_t data)
+void lcd_write_char(char a)
 {
-    LCD_EN = 0; LCD_RS = 0;
-    LCD_LD7 = (data & 0b10000000)>>7;
-    LCD_LD6 = (data & 0b01000000)>>6;
-    LCD_LD5 = (data & 0b00100000)>>5;
-    LCD_LD4 = (data & 0b00010000)>>4;
-    _delay(10);
-    LCD_EN = 1;
-    __delay_us(5);
-    LCD_EN = 0;
-    LCD_LD7 = (data & 0b00001000)>>3;
-    LCD_LD6 = (data & 0b00000100)>>2;
-    LCD_LD5 = (data & 0b00000010)>>1;
-    LCD_LD4 = (data & 0b00000001);
-    _delay(10);
-    LCD_EN = 1;
-    __delay_us(5);
-    LCD_EN = 0;
-    __delay_us(5500);
+   char temp,y;
+   temp = a&0x0F;
+   y = a&0xF0;
+   RS = 1;             // => RS = 1
+   Lcd_Port(y>>4);             //Data transfer
+   EN = 1;
+   __delay_us(40);
+   EN = 0;
+   Lcd_Port(temp);
+   EN = 1;
+   __delay_us(40);
+   EN = 0;
+}
+
+void lcd_putc(char *a)
+{
+   int i;
+   for(i=0;a[i]!='\0';i++)
+      lcd_write_char(a[i]);
+}
+
+void lcd_shift_right()
+{
+   Lcd_Cmd(0x01);
+   Lcd_Cmd(0x0C);
+}
+
+void lcd_shift_left()
+{
+   Lcd_Cmd(0x01);
+   Lcd_Cmd(0x08);
 }

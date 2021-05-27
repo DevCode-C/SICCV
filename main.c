@@ -10,21 +10,40 @@
 #include "pic18f4550.h"                 // Agregamos la libreria del microcontrolador que estamos usando 
 #include "HeaderApp/adc.h"
 #include "HeaderApp/lcd.h"
-void main(void) {
-    
-//    ADCON1 = 0x0F;
-    TRISAbits.TRISA0 = 1;
-    TRISAbits.TRISA1 = 1;
-    TRISAbits.TRISA2 = 0;
-    TRISD = 0x00;
-    adcInit(2);
-    while(1) {
+#include <stdlib.h>
+#include <stdio.h>
+#define _XTAL_FREQ 12000000
 
-        LATD = (uint8_t)adcGetValue(0);
-        LATAbits.LA2 = 1;
-        __delay_ms(500);
-        LATD = (uint8_t)adcGetValue(1);
-        LATAbits.LA2 = 0;
-        __delay_ms(500);
+/****************Variables a utilizar*********/
+float decimal= 4.47;
+uint16_t entero=20;
+char buffer_lcd[20];
+
+/****************Funci?n Principal*************/
+void main(void)
+{
+    TRISD=0x00;               //Configuramos el Puerto D como salida digital.
+    lcd_init();               //Inicializamos la pantalla LCD.
+    adcInit(2);
+    lcd_clear();          //Limpiamos pantalla LCD
+    lcd_gotoxy(1,1);      //Ubicamos el cursor en fila 1, columna 1
+    lcd_putc("**IDE MPLAB X**");  //mostramos una cadena de caracteres en la pantalla LCD
+    lcd_gotoxy(2,1);      //Ubicamos el cursor en fila2, columna 1
+    lcd_putc("******XC8******");  //mostramos una cadena de caracteres en la pantalla LCD
+    __delay_ms(1000);
+    lcd_clear();
+    while(1)                  //Bucle Infinito 
+    {
+        entero = adcGetValue(0);
+        sprintf(buffer_lcd,"ADC1:%d",entero);
+        lcd_gotoxy(1,1);
+        lcd_putc(buffer_lcd);
+        __delay_ms(100);
+        entero = adcGetValue(1);
+        sprintf(buffer_lcd,"ADC2:%d",entero);
+        lcd_gotoxy(2,1);
+        lcd_putc(buffer_lcd);
+        __delay_ms(100);
     }
+    return;
 }

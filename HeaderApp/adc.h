@@ -2,7 +2,7 @@
 #include "stdint.h"
 #ifndef __ADC__H
 #define __ADC__H
-    #define _XTAL_FREQ 48000000             // Definimos la frecuencia que estamos usando 
+    #define _XTAL_FREQ 12000000             // Definimos la frecuencia que estamos usando 
     #define ADC_ENABLE()    ADCON0bits.ADON = 1
     #define ADC_DISABLE()   ADCON0bits.ADON = 0;
 
