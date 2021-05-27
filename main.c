@@ -5,14 +5,8 @@
  * Created on May 25, 2021, 3:49 PM
  */
 
-#define _XTAL_FREQ 12000000
-#include "HeaderApp/Config.h"           // Configuracion de los #Pragma
-#include "pic18f4550.h"                 // Agregamos la libreria del microcontrolador que estamos usando 
-#include "HeaderApp/adc.h"
-//#include "HeaderApp/lcd.h"
-#include "HeaderApp/flex_lcd.h"
-#include <stdlib.h>
-#include <stdio.h>
+#define _XTAL_FREQ 12000000                // Agregamos la libreria del microcontrolador que estamos usando 
+#include "HeaderApp/main.h"
 
 
 /****************Variables a utilizar*********/
@@ -26,11 +20,9 @@ void main(void)
     Lcd_Cmd(LCD_CLEAR);
     Lcd_Cmd(LCD_CURSOR_OFF);
      __delay_ms(100);
-     Lcd_Out(1,1,(int8_t *)"Bienvenido :*");
-    Lcd_Out(2,1,(int8_t *)"*Calculadora*");
+    LCD_OUT_TXT(1,0,"Bienvenidos");
     __delay_ms(1000);
-    Lcd_Cmd(LCD_CLEAR);
-    __delay_ms(100);
+    LCD_CLEAR_DATA();
     adcInit(2);
     while(1)                  
     {

@@ -21,6 +21,11 @@
     #define      LCD_SHIFT_LEFT          24
     #define      LCD_SHIFT_RIGHT         28
 
+
+    #define     LCD_OUT_TXT(y,x,text)       Lcd_Out(y,x, (const int8_t*)text)
+    #define     LCD_OUT_TXTB(y,x,text)      Lcd_Out(y,x, (int8_t*)text)
+    #define     LCD_CLEAR_DATA()            (Lcd_Cmd(LCD_CLEAR),__delay_ms(100))
+
     void Lcd_Init(void);
     
     void Lcd_Out(uint8_t y, uint8_t x, const int8_t *buffer);
@@ -31,5 +36,4 @@
     
     void Lcd_Cmd(uint8_t data);
   
-
 #endif
