@@ -8,6 +8,17 @@
 #include "adc.h"
 #include "flex_lcd.h"
 #include "teclado.h"
+#include "servo.h"
 #define _XTAL_FREQ 12000000
+
+typedef void(*prtFuncNext)(void);
+
+typedef struct _state
+{
+    uint8_t counter;
+    uint8_t state;
+    prtFuncNext nextFunc;
+}StateMachine;
+
 
 #endif

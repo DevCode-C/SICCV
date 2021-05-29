@@ -35,5 +35,7 @@
     void Lcd_Chr_CP(int8_t data);
     
     void Lcd_Cmd(uint8_t data);
+    
+    void appLCD_Init(void);
   
 #endif

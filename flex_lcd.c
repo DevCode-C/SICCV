@@ -193,3 +193,15 @@ void Lcd_Cmd(uint8_t data)
     LCD_EN = 0;
     __delay_us(5500);
 }
+
+void appLCD_Init(void)
+{
+    Lcd_Init();
+    Lcd_Cmd(LCD_CLEAR);
+    Lcd_Cmd(LCD_CURSOR_OFF);
+    __delay_ms(100);
+    LCD_OUT_TXT(1,3,"Bienvenidos");
+    LCD_OUT_TXT(2,6,"SICCV");
+    __delay_ms(2000);
+    LCD_CLEAR_DATA();
+}
