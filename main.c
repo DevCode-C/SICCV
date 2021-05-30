@@ -25,7 +25,7 @@ void main(void)
     return;
 }
 
-void __interrupt(low_priority) isr(void)
+void __interrupt(low_priority) isrL(void)
 {
     if(TMR3IE && TMR3IF)
     {
@@ -39,5 +39,9 @@ void __interrupt(low_priority) isr(void)
             
         }
     }
+    
+}
+void __interrupt(high_priority) isrH(void)
+{
     
 }

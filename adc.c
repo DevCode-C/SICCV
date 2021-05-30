@@ -4,9 +4,7 @@
  *
  * Created on May 25, 2021, 7:14 PM
  */
-
-#include <xc.h>
-#include "HeaderApp/adc.h"
+#include "HeaderApp/main.h"
 
 void adcInit(uint8_t ADC_PINs)
 {
@@ -49,4 +47,13 @@ uint16_t adcGetValue(uint8_t PinADC)
     {
     }
     return ADRES;
+}
+
+void appADC(void)
+{
+    uint8_t dataOut[16] = {0}; 
+    sprintf((char *)dataOut,"ADC1:%d",adcGetValue(0));
+    LCD_OUT_TXTB(1,0,dataOut);
+    sprintf((char *)dataOut,"ADC2:%d",adcGetValue(1));
+    LCD_OUT_TXTB(2,0,dataOut);
 }

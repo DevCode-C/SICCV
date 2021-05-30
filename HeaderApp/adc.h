@@ -17,4 +17,7 @@
     */
     uint16_t adcGetValue(uint8_t PinADC);
     
+    
+    void appADC(void);
+    
 #endif

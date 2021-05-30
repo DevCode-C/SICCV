@@ -20,11 +20,7 @@ void appInit(void)
 
 void appStateRecolectData(void)
 {
-    uint8_t dataOut[16] = {0}; 
-    sprintf((char *)dataOut,"ADC1:%d",adcGetValue(0));
-    LCD_OUT_TXTB(1,0,dataOut);
-    sprintf((char *)dataOut,"ADC2:%d",adcGetValue(1));
-    LCD_OUT_TXTB(2,0,dataOut);
+    appADC();
     datos.nextFunc = appStateInitial;
 }
 void appStateInitial(void)
