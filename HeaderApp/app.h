@@ -9,6 +9,8 @@
     
     void appStateRecolectData(void);
     
+    void appGetElements(void);
+    
     void appStateInitial(void);
 
 #endif

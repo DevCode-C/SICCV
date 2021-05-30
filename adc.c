@@ -4,7 +4,8 @@
  *
  * Created on May 25, 2021, 7:14 PM
  */
-#include "HeaderApp/main.h"
+#include "HeaderApp/adc.h"
+#include <string.h>
 
 void adcInit(uint8_t ADC_PINs)
 {
@@ -49,20 +50,26 @@ uint16_t adcGetValue(uint8_t PinADC)
     return ADRES;
 }
 
-void appADC(void)
+void appADC(StateMachine *data)
 {
-    uint8_t dataOut[9] = {0}; 
+    memset(data->display,0,sizeof(data->display));
     float lm35val = adcGetValue(0);
     lm35val = (float)((lm35val*4.88)/10.0);
-    sprintf((char *)dataOut,"T:%02d.%02d C",(uint8_t)lm35val,(uint8_t)((uint8_t)(lm35val*100)%100));
-    LCD_OUT_TXTB(1,0,dataOut);
+//    sprintf((char *)dataOut,"T:%02d.%02d C",(uint8_t)lm35val,(uint8_t)((uint8_t)(lm35val*100)%100));
+    sprintf((char *)data->display,"T:%02d.%02d C",(uint8_t)lm35val,(uint8_t)((uint8_t)(lm35val*100)%100));
+    LCD_OUT_TXTB(1,0,data->display);
 }
 
-void appBat(void)
+void appBat(StateMachine *data)
 {
-    uint8_t dataOut[8] = {0}; 
-    float bat = adcGetValue(1);
-    bat = (float)((bat*5.0)/1024.0);
-    sprintf((char *)dataOut,"Bat:%d",(int)((bat*100)/5));
-    LCD_OUT_TXTB(2,0,dataOut);
+    memset(data->display,0,sizeof(data->display));
+//    float bat = adcGetValue(1);
+//    bat = (float)((bat*5.0)/1024.0);
+//    bat = ((bat*100)/5.0);
+//    data->bat = (uint8_t)((bat*100)/5);
+    data->bat = adcGetValue(1);
+    data->bat = (uint16_t)(((data->bat *5.0)/1024.0)*100);
+    data->bat = (uint16_t)((data->bat*100.0)/500.0);
+    sprintf((char *)data->display,"Bat:%02d",(data->bat));
+    LCD_OUT_TXTB(2,0,data->display);
 }

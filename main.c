@@ -8,10 +8,11 @@
 #include "HeaderApp/main.h"
 #include "HeaderApp/app.h"
 
-StateMachine datos = {0,255,0,0,{0},appStateInitial};
+StateMachine datos = {0,255,0,0,0,{0},appStateInitial};
 void main(void)
 {
-    TRISBbits.TRISB3 = 0;
+    TRISB = 0xF0;
+    INTCON2bits.RBPU = 0;
     LATBbits.LATB2 = 0;
     appInit();
     while(1)                  

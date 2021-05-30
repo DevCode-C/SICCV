@@ -4,6 +4,8 @@
  *
  * Created on May 26, 2021, 12:42 AM
  */
+#include <stdio.h>
+
 #include "HeaderApp/teclado.h"
 void teclado(uint8_t *valor){//Función teclado
     *valor = 0;
@@ -32,4 +34,5 @@ void teclado(uint8_t *valor){//Función teclado
     }
     PORTB = 0xF0;
     while (PORTB != 0xF0);
+    
 }

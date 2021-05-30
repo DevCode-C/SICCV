@@ -1,5 +1,7 @@
+#include "xc.h"
 #include "pic18f4550.h"
-#include "stdint.h"
+#include "NewTypes.h"
+#include "flex_lcd.h"
 #ifndef __ADC__H
 #define __ADC__H
     #define _XTAL_FREQ 12000000             // Definimos la frecuencia que estamos usando 
@@ -17,8 +19,8 @@
     uint16_t adcGetValue(uint8_t PinADC);
     
     
-    void appADC(void);
+    void appADC(StateMachine *data);
     
-    void appBat(void);
+    void appBat(StateMachine *data);
     
 #endif

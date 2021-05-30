@@ -1,4 +1,7 @@
-#include "main.h"
+#include "xc.h"
+#include "pic18f4550.h"
+#include "NewTypes.h"
+#include "flex_lcd.h"
 
 #ifndef __PWM__H
 #define __PWM__H

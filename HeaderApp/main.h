@@ -9,19 +9,10 @@
 #include "flex_lcd.h"
 #include "teclado.h"
 #include "servo.h"
-#define _XTAL_FREQ 12000000
+#include "NewTypes.h"
+//#define _XTAL_FREQ 12000000
 
-typedef void(*prtFuncNext)(void);
 
-typedef struct _state
-{
-    uint8_t counter;
-    uint8_t elements;
-    uint8_t state;
-    uint16_t bat;
-    uint8_t display[16];
-    prtFuncNext nextFunc;
-}StateMachine;
 
 
 #endif
