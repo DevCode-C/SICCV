@@ -24,22 +24,3 @@ void main(void)
     return;
 }
 
-void __interrupt(low_priority) isrL(void)
-{
-    if(TMR3IE && TMR3IF)
-    {
-        TMR3IF = 0;
-        
-        datos.counter++;
-        if(datos.counter == 10)
-        {
-            datos.counter = 0;
-            datos.nextFunc = appStateRecolectData;
-        }
-        TMR3 = 20536;
-    }
-}
-void __interrupt(high_priority) isrH(void)
-{
-    
-}

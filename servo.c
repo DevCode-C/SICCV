@@ -74,6 +74,12 @@ void appTimerStart(void)
     TMR3 = 20536;
     T3CONbits.TMR3ON = 1;
 }
+
+void appTimerStop(void)
+{
+    T3CONbits.TMR3ON = 0;
+}
+
 void appElemts(const uint8_t * elements)
 {
     uint8_t dataout[6] = {0};

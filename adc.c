@@ -54,7 +54,7 @@ void appADC(void)
     uint8_t dataOut[9] = {0}; 
     float lm35val = adcGetValue(0);
     lm35val = (float)((lm35val*4.88)/10.0);
-    sprintf((char *)dataOut,"T:%0.1f C",lm35val);
+    sprintf((char *)dataOut,"T:%02d.%02d C",(uint8_t)lm35val,(uint8_t)((uint8_t)(lm35val*100)%100));
     LCD_OUT_TXTB(1,0,dataOut);
 }
 
