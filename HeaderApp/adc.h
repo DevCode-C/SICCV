@@ -6,7 +6,6 @@
     #define ADC_ENABLE()    ADCON0bits.ADON = 1
     #define ADC_DISABLE()   ADCON0bits.ADON = 0;
 
-
     /*
         Inicializa el perifico ADC
     */
@@ -19,5 +18,7 @@
     
     
     void appADC(void);
+    
+    void appBat(void);
     
 #endif

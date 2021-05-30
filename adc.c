@@ -51,9 +51,18 @@ uint16_t adcGetValue(uint8_t PinADC)
 
 void appADC(void)
 {
-    uint8_t dataOut[16] = {0}; 
-    sprintf((char *)dataOut,"ADC1:%d",adcGetValue(0));
+    uint8_t dataOut[9] = {0}; 
+    float lm35val = adcGetValue(0);
+    lm35val = (float)((lm35val*4.88)/10.0);
+    sprintf((char *)dataOut,"T:%0.1f C",lm35val);
     LCD_OUT_TXTB(1,0,dataOut);
-    sprintf((char *)dataOut,"ADC2:%d",adcGetValue(1));
+}
+
+void appBat(void)
+{
+    uint8_t dataOut[8] = {0}; 
+    float bat = adcGetValue(1);
+    bat = (float)((bat*5.0)/1024.0);
+    sprintf((char *)dataOut,"Bat:%d",(int)((bat*100)/5));
     LCD_OUT_TXTB(2,0,dataOut);
 }

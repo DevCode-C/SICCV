@@ -16,7 +16,10 @@ typedef void(*prtFuncNext)(void);
 typedef struct _state
 {
     uint8_t counter;
+    uint8_t elements;
     uint8_t state;
+    uint16_t bat;
+    uint8_t display[16];
     prtFuncNext nextFunc;
 }StateMachine;
 

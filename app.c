@@ -21,6 +21,8 @@ void appInit(void)
 void appStateRecolectData(void)
 {
     appADC();
+    appBat();
+    appElemts(&datos.elements);
     datos.nextFunc = appStateInitial;
 }
 void appStateInitial(void)

@@ -74,4 +74,9 @@ void appTimerStart(void)
     TMR3 = 20536;
     T3CONbits.TMR3ON = 1;
 }
-
+void appElemts(const uint8_t * elements)
+{
+    uint8_t dataout[6] = {0};
+    sprintf((char *)dataout,"#:%d",*elements);
+    LCD_OUT_TXTB(2,8,dataout);
+}

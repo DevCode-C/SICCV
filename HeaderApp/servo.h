@@ -14,4 +14,5 @@
     
     void appTimerInit(void);
     void appTimerStart(void);
+    void appElemts(const uint8_t * elements);
 #endif
