@@ -20,6 +20,7 @@ void main(void)
         LATBbits.LATB3 = !LATBbits.LATB3;
         __delay_ms(100);
         datos.nextFunc();
+        
     }
     return;
 }
