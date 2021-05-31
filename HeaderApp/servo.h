@@ -18,5 +18,5 @@
     void appTimerInit(void);
     void appTimerStart(void);
     void appTimerStop(void);
-    void appElemts(const uint8_t * elements);
+    void appElemts(const int16_t * elements);
 #endif

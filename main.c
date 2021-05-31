@@ -13,12 +13,11 @@ void main(void)
 {
     TRISB = 0xF0;
     INTCON2bits.RBPU = 0;
-    LATBbits.LATB2 = 0;
+    TRISAbits.TRISA3 = 0;
     appInit();
     while(1)                  
     {
-        
-        LATBbits.LATB3 = !LATBbits.LATB3;
+        LATAbits.LA3 = !LATAbits.LA3;
         __delay_ms(100);
         datos.nextFunc();
         

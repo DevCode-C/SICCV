@@ -4,6 +4,8 @@
  *
  * Created on May 29, 2021, 4:04 PM
  */
+#include <string.h>
+
 #include "HeaderApp/app.h"
 
 extern StateMachine datos;
@@ -32,21 +34,40 @@ void appStateInitial(void)
     if(datos.character != 0)
     {
         datos.state = 1;
+        datos.character = 0;
     }
-//    sprintf((char *)datos.display,"%c",(char)datos.character);
-//    LCD_OUT_TXTB(1,0,datos.display);
 }
 
 void appGetElements(void)
 {
+    datos.state = 0;
+    uint16_t cantidad = 0;
+    uint8_t inout = 0;
     appTimerStop();
+    memset(datos.display,0,sizeof(datos.display));
     LCD_CLEAR_DATA();
-    while(1)
+    LCD_OUT_TXT(1,0,"C de vacunas:");
+    while(inout != '*')
     {
-        teclado(&datos.character);
-        sprintf((char *)datos.display,"%c",(char)datos.character);
-        LCD_OUT_TXTB(1,0,datos.display);
+        teclado(&inout);
+        
+        if((inout >= '0') && (inout <= '9'))
+        {
+            cantidad = (cantidad*10)+(inout - 48);
+        }
+        sprintf((char *)datos.display,"%d",cantidad);
+        LCD_OUT_TXTB(2,0,datos.display);
     }
+    datos.elements -= cantidad;
+    datos.character = 0;
+    if(datos.elements <= 0)
+    {
+        datos.elements = 0;
+    }
+    __delay_ms(500);
+    LCD_CLEAR_DATA();
+    datos.nextFunc = appStateInitial;
+    appTimerStart();
 }
 
 void appISRConfig(void)

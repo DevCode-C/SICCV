@@ -80,7 +80,7 @@ void appTimerStop(void)
     T3CONbits.TMR3ON = 0;
 }
 
-void appElemts(const uint8_t * elements)
+void appElemts(const int16_t * elements)
 {
     uint8_t dataout[6] = {0};
     sprintf((char *)dataout,"#:%d",*elements);
