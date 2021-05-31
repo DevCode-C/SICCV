@@ -53,7 +53,7 @@ void setServo(uint8_t angle, uint8_t pulsos)
 void appTimerInit(void)
 {
     /*
-     COndifuracion del timer para apliacion especifica
+     COndifuracion del timer3 para apliacion especifica
     */
     T3CONbits.TMR3ON = 0;
     T3CONbits.RD16 = 1;
@@ -61,9 +61,28 @@ void appTimerInit(void)
     T3CONbits.T3CKPS = 0b11;
     T3CONbits.T3NSYNC = 1;
       
+    /*
+     Configuracion del Timer0 para aplicaion de contador
+    */
+    T0CONbits.TMR0ON = 0;
+    T0CONbits.T08BIT = 1;
+    T0CONbits.T0CS = 1;
+    T0CONbits.T0SE = 0;
+    T0CONbits.PSA = 1;
+//    T0CONbits.T0PS = 0;
+    TRISAbits.TRISA4 = 1;
+    
+    /*
+     COnfiguracion de la interrupcion de periferico para el overflow del TMR0
+     * Alta Prioridad
+    */
+    INTCONbits.TMR0IE = 1;
+    INTCONbits.TMR0IF = 0;
+    INTCON2bits.TMR0IP = 1;
     
     /*
      Configuracion de la interrupcion de perifericos para el overflow del TMR3
+     * Baja Prioridad
     */
     PIR2bits.TMR3IF = 0;
     IPR2bits.TMR3IP = 0;
@@ -78,6 +97,22 @@ void appTimerStart(void)
 void appTimerStop(void)
 {
     T3CONbits.TMR3ON = 0;
+}
+
+void appCounterInit(uint16_t reload)
+{
+    TMR0 = reload + 1;
+}
+
+void appCounterStart(void)
+{
+    
+    T0CONbits.TMR0ON = 1;
+}
+
+void appCounterStop(void)
+{
+    T0CONbits.TMR0ON = 0;
 }
 
 void appElemts(const int16_t * elements)

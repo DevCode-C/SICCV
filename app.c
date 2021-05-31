@@ -15,6 +15,7 @@ void appInit(void)
     appLCD_Init();
     adcInit(2);
     appTimerInit();
+    appCounterInit(250);
     appTimerStart();
     
     
@@ -45,7 +46,9 @@ void appGetElements(void)
     LCD_CLEAR_DATA();
     appSubGetData(&datos);
     LCD_CLEAR_DATA();
+    appSubGiveElemts(&datos);
     datos.nextFunc = appStateInitial;
+    
     appTimerStart();
 }
 
@@ -78,10 +81,18 @@ void appSubGetData(StateMachine *data_Inout)
     }
     data_Inout->elements = (int16_t)cantidad;
 }
-
+void warning(void)
+{
+    LCD_CLEAR_DATA();
+    while(1)
+    {
+        LCD_OUT_TXT(1,0,"Sin vacunas");
+        LCD_OUT_TXT(2,0,"Recarga Porfavor");
+    }
+}
 void appSubGiveElemts(StateMachine *data)
 {
-    
+    appCounterStart();
 }
 
 void __interrupt(low_priority) isrL(void)
@@ -104,5 +115,10 @@ void __interrupt(low_priority) isrL(void)
 }
 void __interrupt(high_priority) isrH(void)
 {
-    
+    if(TMR0IE && TMR0IF)
+    {
+        TMR0IF = 0;
+        datos.state = 10;
+        datos.nextFunc = warning;
+    }
 }

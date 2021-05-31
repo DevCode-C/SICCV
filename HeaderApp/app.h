@@ -13,6 +13,10 @@
     
     void appSubGetData(StateMachine *data_Inout);
     
+    void appSubGiveElemts(StateMachine *data);
+    
+    void warning(void);
+    
     void appStateInitial(void);
 
 #endif

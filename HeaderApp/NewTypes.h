@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define _XTAL_FREQ 12000000
+#define CAPACITY    510
 
 typedef void(*prtFuncNext)(void);
 
