@@ -41,30 +41,9 @@ void appStateInitial(void)
 void appGetElements(void)
 {
     datos.state = 0;
-    uint16_t cantidad = 0;
-    uint8_t inout = 0;
     appTimerStop();
-    memset(datos.display,0,sizeof(datos.display));
     LCD_CLEAR_DATA();
-    LCD_OUT_TXT(1,0,"C de vacunas:");
-    while(inout != '*')
-    {
-        teclado(&inout);
-        
-        if((inout >= '0') && (inout <= '9'))
-        {
-            cantidad = (cantidad*10)+(inout - 48);
-        }
-        sprintf((char *)datos.display,"%d",cantidad);
-        LCD_OUT_TXTB(2,0,datos.display);
-    }
-    datos.elements -= cantidad;
-    datos.character = 0;
-    if(datos.elements <= 0)
-    {
-        datos.elements = 0;
-    }
-    __delay_ms(500);
+    appSubGetData(&datos);
     LCD_CLEAR_DATA();
     datos.nextFunc = appStateInitial;
     appTimerStart();
@@ -78,6 +57,31 @@ void appISRConfig(void)
     RCONbits.IPEN = 1;
     INTCONbits.GIE_GIEH = 1;
     INTCONbits.PEIE_GIEL = 1;
+}
+
+void appSubGetData(StateMachine *data_Inout)
+{
+    uint16_t cantidad = 0;
+    uint8_t inout = 0;
+    memset(data_Inout->display,0,sizeof(data_Inout->display));
+    LCD_OUT_TXT(1,0,"C de vacunas:");
+    while(inout != '*')
+    {
+        teclado(&inout);
+        
+        if((inout >= '0') && (inout <= '9'))
+        {
+            cantidad = (cantidad*10)+(inout - 48);
+        }
+        sprintf((char *)data_Inout->display,"%d",cantidad);
+        LCD_OUT_TXTB(2,0,data_Inout->display);
+    }
+    data_Inout->elements = (int16_t)cantidad;
+}
+
+void appSubGiveElemts(StateMachine *data)
+{
+    
 }
 
 void __interrupt(low_priority) isrL(void)

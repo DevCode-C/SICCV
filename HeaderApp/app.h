@@ -11,6 +11,8 @@
     
     void appGetElements(void);
     
+    void appSubGetData(StateMachine *data_Inout);
+    
     void appStateInitial(void);
 
 #endif
