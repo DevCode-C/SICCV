@@ -37,6 +37,8 @@ void adcInit(uint8_t ADC_PINs)
     /**/
     ADCON2bits.ADFM = 1;
     ADC_ENABLE();
+    
+    TRISCbits.TRISC1 = 0;
 }
 
 uint16_t adcGetValue(uint8_t PinADC)
@@ -58,6 +60,14 @@ void appADC(StateMachine *data)
 //    sprintf((char *)dataOut,"T:%02d.%02d C",(uint8_t)lm35val,(uint8_t)((uint8_t)(lm35val*100)%100));
     sprintf((char *)data->display,"T:%02d.%02d C",(uint8_t)lm35val,(uint8_t)((uint8_t)(lm35val*100)%100));
     LCD_OUT_TXTB(1,0,data->display);
+    if(((int)lm35val < 2))
+    {
+        LATCbits.LATC1 = 0;
+    }
+    else if(((int)lm35val >= 7))
+    {
+        LATCbits.LATC1 = 1;
+    }
 }
 
 void appBat(StateMachine *data)
