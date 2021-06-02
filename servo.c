@@ -11,42 +11,73 @@ void servoInit(void)
     T2CONbits.T2OUTPS1 = 1;
     T2CONbits.T2OUTPS2 = 1;
     T2CONbits.T2OUTPS3 = 1;
+    TRISEbits.TRISE0 = 0;
+    TRISEbits.TRISE1 = 0;
+    TRISEbits.TRISE2 = 0;
 }
 
-void setServoAngle(uint8_t angle)
+void setServoAngle(uint8_t angle, uint8_t pin)
 {
-    TRISBbits.TRISB1 = 0;
 //    TMR0 = angle;
     TMR2 = angle;
     PR2 = 255;
 //    INTCONbits.TMR0IF = 0;
     PIR1bits.TMR2IF = 0;
-    LATBbits.LATB1 = 1;
-    if(angle == D180 || angle == 1)
+    
+    switch(pin)
+    {
+        case 0: 
+            LATEbits.LATE0 = 1;
+            break;
+        case 1:
+            LATEbits.LATE1 = 1;
+            break;
+        case 2:
+            LATEbits.LATE2 = 1;
+            break;
+    }
+    
+    if(angle == D180)
     {
         __delay_us(2000);
     }
-    else if(angle == D0 || angle == 0)
+    else if(angle == D0)
     {
         __delay_us(1000);
+    }
+    else if(angle == D90)
+    {
+        __delay_us(1500);
     }
 //    T0CONbits.TMR0ON =1;
     T2CONbits.TMR2ON = 1;
     while(!PIR1bits.TMR2IF)
     {
-        LATBbits.LATB1 = 0;
+        switch(pin)
+        {
+            case 0: 
+                LATEbits.LATE0 = 0;
+                break;
+            case 1:
+                LATEbits.LATE1 = 0;
+                break;
+            case 2:
+                LATEbits.LATE2 = 0;
+                break;
+        }
     }
 //    INTCONbits.TMR0IF = 0;
     T2CONbits.TMR2ON = 0;
     PIR1bits.TMR2IF = 0;
 //    T0CONbits.TMR0ON =0;
+    
 }
 
-void setServo(uint8_t angle, uint8_t pulsos)
+void setServo(uint8_t angle, uint8_t pulsos, uint8_t pin)
 {
     for(uint8_t i = 0; i < pulsos; i++)
     {
-        setServoAngle(angle);
+        setServoAngle(angle, pin);
     }
 }
 
@@ -60,6 +91,7 @@ void appTimerInit(void)
     T3CONbits.TMR3CS = 0;
     T3CONbits.T3CKPS = 0b11;
     T3CONbits.T3NSYNC = 1;
+    TMR3 = 20536;
       
     /*
      Configuracion del Timer0 para aplicaion de contador
@@ -101,7 +133,8 @@ void appTimerStop(void)
 
 void appCounterInit(uint16_t reload)
 {
-    TMR0 = reload + 1;
+//    TMR0 = reload + 1;
+    TMR0 = reload;
 }
 
 void appCounterStart(void)
@@ -118,6 +151,6 @@ void appCounterStop(void)
 void appElemts(const int16_t * elements)
 {
     uint8_t dataout[6] = {0};
-    sprintf((char *)dataout,"#:%d",*elements);
+    sprintf((char *)dataout,"#:%d",(N_ELEMENTS - (TMR0)));
     LCD_OUT_TXTB(2,10,dataout);
 }

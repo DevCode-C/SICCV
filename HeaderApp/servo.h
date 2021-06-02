@@ -7,13 +7,15 @@
 #define __PWM__H
 
     #define D180    45
-    #define D90     38
+    #define D90     39
     #define D0      33
+
+    #define N_ELEMENTS  256
     
 
     void servoInit(void);
-    void setServoAngle(uint8_t angle);
-    void setServo(uint8_t angle, uint8_t pulsos);
+    void setServoAngle(uint8_t angle, uint8_t pin);
+    void setServo(uint8_t angle, uint8_t pulsos, uint8_t pin);
     
     void appTimerInit(void);
     void appTimerStart(void);

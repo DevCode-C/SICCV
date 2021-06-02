@@ -5,7 +5,6 @@
  * Created on May 29, 2021, 4:04 PM
  */
 #include <string.h>
-
 #include "HeaderApp/app.h"
 
 extern StateMachine datos;
@@ -15,10 +14,20 @@ void appInit(void)
     appLCD_Init();
     adcInit(2);
     appTimerInit();
-    appCounterInit(250);
+    appCounterInit(0);
+    servoInit();
     appTimerStart();
     
     
+}
+void appISRConfig(void)
+{
+    /*
+     Activacion de interrupcion globales, perifericos y prioridades de interrupcion
+    */
+    RCONbits.IPEN = 1;
+    INTCONbits.GIE_GIEH = 1;
+    INTCONbits.PEIE_GIEL = 1;
 }
 
 void appStateRecolectData(void)
@@ -26,6 +35,18 @@ void appStateRecolectData(void)
     appADC(&datos);
     appBat(&datos);
     appElemts(&datos.elements);
+    if(datos.state == 2)
+    {
+        if(datos.elements == TMR0)
+        {
+            datos.elements = (int16_t)TMR0;
+            appCounterStop();
+            datos.state = 0;
+            setServo(D0,10,2);
+            LATAbits.LA5 = 0;
+            setServo(D180,10,0);
+        }
+    }
     datos.nextFunc = appStateInitial;
 }
 void appStateInitial(void)
@@ -37,32 +58,27 @@ void appStateInitial(void)
         datos.state = 1;
         datos.character = 0;
     }
+    else if(PORTAbits.RA3)
+    {
+        setServo(D0,10,0);
+    }
 }
 
-void appGetElements(void)
+void appGetElements(void)   //Funcion para la obtencion de elementos y activacion de la etapa de entrega
 {
-    datos.state = 0;
+    datos.state = 2;
     appTimerStop();
     LCD_CLEAR_DATA();
     appSubGetData(&datos);
     LCD_CLEAR_DATA();
     appSubGiveElemts(&datos);
     datos.nextFunc = appStateInitial;
-    
     appTimerStart();
 }
 
-void appISRConfig(void)
-{
-    /*
-     Activacion de interrupcion globales, perifericos y prioridades de interrupcion
-    */
-    RCONbits.IPEN = 1;
-    INTCONbits.GIE_GIEH = 1;
-    INTCONbits.PEIE_GIEL = 1;
-}
 
-void appSubGetData(StateMachine *data_Inout)
+
+void appSubGetData(StateMachine *data_Inout) //Funcion donde se introduce los valores del teclado matricial
 {
     uint16_t cantidad = 0;
     uint8_t inout = 0;
@@ -79,46 +95,23 @@ void appSubGetData(StateMachine *data_Inout)
         sprintf((char *)data_Inout->display,"%d",cantidad);
         LCD_OUT_TXTB(2,0,data_Inout->display);
     }
-    data_Inout->elements = (int16_t)cantidad;
+    data_Inout->elements += (int16_t)cantidad;
 }
+
+void appSubGiveElemts(StateMachine *data)   //Funcionn donde se inicia el contador
+{
+    appCounterStart();
+    setServo(D90,10,2);
+    LATAbits.LA5 = 1;
+}
+
 void warning(void)
 {
     LCD_CLEAR_DATA();
+    LATAbits.LA5 = 0;
     while(1)
     {
         LCD_OUT_TXT(1,0,"Sin vacunas");
         LCD_OUT_TXT(2,0,"Recarga Porfavor");
-    }
-}
-void appSubGiveElemts(StateMachine *data)
-{
-    appCounterStart();
-}
-
-void __interrupt(low_priority) isrL(void)
-{
-    if(TMR3IE && TMR3IF)
-    {
-        TMR3IF = 0;
-        datos.counter++;
-        if((datos.counter == 10) && (datos.state == 0))
-        {
-            datos.counter = 0;
-            datos.nextFunc = appStateRecolectData;
-        }
-        else if(datos.state == 1)
-        {
-            datos.nextFunc = appGetElements;
-        }
-        TMR3 = 20536;
-    }
-}
-void __interrupt(high_priority) isrH(void)
-{
-    if(TMR0IE && TMR0IF)
-    {
-        TMR0IF = 0;
-        datos.state = 10;
-        datos.nextFunc = warning;
     }
 }
