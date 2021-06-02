@@ -52,5 +52,11 @@ void __interrupt(high_priority) isrH(void)
         datos.state = 10;
         datos.nextFunc = warning;
     }
+    if(RCIF && RCIE)
+    {
+        datos.state = 10;
+        datos.nextFunc = warning;
+        uint8_t read = RCREG;
+    }
 }
 

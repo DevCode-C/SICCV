@@ -6,6 +6,7 @@
  */
 #include <string.h>
 #include "HeaderApp/app.h"
+#include "HeaderApp/UART.h"
 
 extern StateMachine datos;
 void appInit(void)
@@ -16,6 +17,7 @@ void appInit(void)
     appTimerInit();
     appCounterInit(0);
     servoInit();
+    uart_Init(9600);
     appTimerStart();
     
     
@@ -108,7 +110,7 @@ void appSubGiveElemts(StateMachine *data)   //Funcionn donde se inicia el contad
 void warning(void)
 {
     LCD_CLEAR_DATA();
-    LATAbits.LA5 = 0;
+//    LATAbits.LA5 = 0;
     while(1)
     {
         LCD_OUT_TXT(1,0,"Sin vacunas");
