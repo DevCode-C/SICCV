@@ -38,8 +38,6 @@ void uart_Init(uint32_t baud)
 
 void readUART(void)
 {
-//    LCD_CLEAR_DATA();
-//    LCD_OUT_TXTB(1,0,puerto);
     if(!memcmp(puerto,"Informacion@",12))
     {
         memset(puerto,0,sizeof(puerto));
@@ -53,7 +51,6 @@ void readUART(void)
         datos.state = IDLE;
         datos.nextFunc = appStateRecolectData;
     }
-//    memset(puerto,0,sizeof(puerto));
 }
 
 void sendData(StateMachine *data)

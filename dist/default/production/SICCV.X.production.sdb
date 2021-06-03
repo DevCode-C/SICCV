@@ -141,7 +141,7 @@
 [v _uart_Init uart_Init `(v  1 e 1 0 ]
 "39
 [v _readUART readUART `(v  1 e 1 0 ]
-"58
+"56
 [v _sendData sendData `(v  1 e 1 0 ]
 [s S370 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
@@ -776,7 +776,7 @@
 "39 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\UART.c
 [v _readUART readUART `(v  1 e 1 0 ]
 {
-"56
+"54
 } 0
 "72 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
 [v _appGetElements appGetElements `(v  1 e 1 0 ]
@@ -798,14 +798,14 @@
 {
 "121
 } 0
-"58 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\UART.c
+"56 C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\UART.c
 [v _sendData sendData `(v  1 e 1 0 ]
 {
-"60
-[v sendData@i i `uc  1 a 1 14 ]
 "58
+[v sendData@i i `uc  1 a 1 14 ]
+"56
 [v sendData@data data `*.39S196  1 p 2 10 ]
-"68
+"66
 } 0
 "3 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\memcmp.c
 [v _memcmp memcmp `(i  1 e 2 0 ]
