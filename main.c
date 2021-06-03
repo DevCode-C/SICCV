@@ -19,11 +19,7 @@ void main(void)
     appInit();
     while(1)                  
     {
-//        LATAbits.LA2= !LATAbits.LA2;
-//        __delay_ms(100);
         datos.nextFunc();
-//        sendinformation();
-        
     }
     return;
 }

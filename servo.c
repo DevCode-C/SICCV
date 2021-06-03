@@ -124,7 +124,7 @@ void appTimerInit(void)
 void appTimerStart(void)
 {
 //    TMR3L = 0;
-    TMR3 = 20536;
+//    TMR3 = 20536;
     T3CONbits.TMR3ON = 1;
 }
 

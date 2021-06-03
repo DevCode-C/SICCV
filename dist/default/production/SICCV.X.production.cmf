@@ -27,7 +27,7 @@ text7 CODE 0 3216 3216 6E 1
 text8 CODE 0 32EA 32EA 62 1
 text9 CODE 0 2FF0 2FF0 9E 1
 text10 CODE 0 3284 3284 66 1
-text11 CODE 0 3856 3856 4 1
+text11 CODE 0 384A 384A 4 1
 text12 CODE 0 1878 1878 1E8 1
 text13 CODE 0 1C14 1C14 1AE 1
 text14 CODE 0 3696 3696 3C 1
@@ -43,15 +43,15 @@ text23 CODE 0 380C 380C 18 1
 text24 CODE 0 3774 3774 2E 1
 text25 CODE 0 3122 3122 84 1
 text26 CODE 0 2C7A 2C7A C0 1
-text27 CODE 0 384E 384E 8 1
-text28 CODE 0 3844 3844 A 1
+text27 CODE 0 3842 3842 8 1
+text28 CODE 0 3838 3838 A 1
 text29 CODE 0 353E 353E 4A 1
-text30 CODE 0 385A 385A 4 1
-text31 CODE 0 3838 3838 C 1
+text30 CODE 0 384E 384E 4 1
+text31 CODE 0 3852 3852 4 1
 text32 CODE 0 3824 3824 14 1
 text33 CODE 0 37A2 37A2 2A 1
 text34 CODE 0 262C 262C 11C 1
-text35 CODE 0 385E 385E 4 1
+text35 CODE 0 3856 3856 4 1
 text36 CODE 0 2850 2850 FE 1
 text37 CODE 0 168E 168E 1EA 1
 text38 CODE 0 3406 3406 52 1
@@ -62,7 +62,7 @@ text42 CODE 0 2BB8 2BB8 C2 1
 text43 CODE 0 370A 370A 36 1
 text44 CODE 0 3612 3612 44 1
 text45 CODE 0 2AEE 2AEE CA 1
-text46 CODE 0 3862 3862 2 1
+text46 CODE 0 385A 385A 2 1
 text47 CODE 0 3656 3656 40 1
 text48 CODE 0 2250 2250 164 1
 text49 CODE 0 1F52 1F52 188 1
@@ -84,7 +84,7 @@ idataBANK0 CODE 0 37F2 37F2 19 1
 dataBANK0 BANK0 1 C0 C0 19 1
 bssCOMRAM COMRAM 1 53 53 5 1
 config CONFIG 4 300000 300000 E 1
-$C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
+$C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
 idloc IDLOC 5 200000 200000 8 1
 init CODE 0 BC BC 4 1
 reset_vec CODE 0 0 0 4 1
@@ -109,21 +109,21 @@ CONST 4-7 1
 CONST E-17 1
 CONST C0-7FF 1
 CONST 380B-380B 1
-CONST 3864-7FFF 1
+CONST 385C-7FFF 1
 STACK D9-7FF 1
 SMALLCONST 380B-380B 1
-SMALLCONST 3864-7FFF 1
+SMALLCONST 385C-7FFF 1
 CODE 4-7 1
 CODE E-17 1
 CODE C0-7FF 1
 CODE 380B-380B 1
-CODE 3864-7FFF 1
+CODE 385C-7FFF 1
 BIGRAM 59-5F 1
 BIGRAM D9-7FF 1
 COMRAM 59-5F 1
 EEDATA F00000-F000FF 1
 MEDIUMCONST 380B-380B 1
-MEDIUMCONST 3864-7FFF 1
+MEDIUMCONST 385C-7FFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -138,35 +138,35 @@ MEDIUMCONST 3864-7FFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\SICCV.X.production.o
-18 intcodelo CODE >16500:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-18 intcodelo CODE >31:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-26 intcodelo CODE >33:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-42 intcodelo CODE >35:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-44 intcodelo CODE >36:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-48 intcodelo CODE >37:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-7C intcodelo CODE >39:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-80 intcodelo CODE >40:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-88 intcodelo CODE >41:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-8C intcodelo CODE >42:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-9C intcodelo CODE >44:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-A4 intcodelo CODE >46:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-AC intcodelo CODE >48:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-8 intcode CODE >16676:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-8 intcode CODE >49:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-2F4C intcode_body CODE >49:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-2F56 intcode_body CODE >52:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-2F72 intcode_body CODE >54:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-2F74 intcode_body CODE >55:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-2F7A intcode_body CODE >56:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-2F82 intcode_body CODE >58:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-2F9E intcode_body CODE >60:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-2FAE intcode_body CODE >61:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-2FCC intcode_body CODE >63:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-2FCE intcode_body CODE >64:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-2FD2 intcode_body CODE >67:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-2FD8 intcode_body CODE >68:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-2FE0 intcode_body CODE >69:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-2FE4 intcode_body CODE >72:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+18 intcodelo CODE >16492:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+18 intcodelo CODE >27:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+26 intcodelo CODE >29:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+42 intcodelo CODE >31:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+44 intcodelo CODE >32:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+48 intcodelo CODE >33:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+7C intcodelo CODE >35:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+80 intcodelo CODE >36:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+88 intcodelo CODE >37:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+8C intcodelo CODE >38:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+9C intcodelo CODE >40:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+A4 intcodelo CODE >42:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+AC intcodelo CODE >44:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+8 intcode CODE >16668:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+8 intcode CODE >45:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+2F4C intcode_body CODE >45:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+2F56 intcode_body CODE >48:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+2F72 intcode_body CODE >50:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+2F74 intcode_body CODE >51:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+2F7A intcode_body CODE >52:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+2F82 intcode_body CODE >54:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+2F9E intcode_body CODE >56:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+2FAE intcode_body CODE >57:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+2FCC intcode_body CODE >59:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+2FCE intcode_body CODE >60:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+2FD2 intcode_body CODE >63:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+2FD8 intcode_body CODE >64:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+2FE0 intcode_body CODE >65:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+2FE4 intcode_body CODE >68:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
 23B4 text57 CODE >151:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\flex_lcd.c
 23B6 text57 CODE >153:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\flex_lcd.c
 23B8 text57 CODE >154:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\flex_lcd.c
@@ -317,8 +317,8 @@ AC intcodelo CODE >48:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
 3656 text47 CODE >1:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\abs.c
 3656 text47 CODE >3:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\abs.c
 3694 text47 CODE >4:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\abs.c
-3862 text46 CODE >7:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\putch.c
-3862 text46 CODE >9:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\putch.c
+385A text46 CODE >7:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\putch.c
+385A text46 CODE >9:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\putch.c
 2AEE text45 CODE >8:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\nf_fputc.c
 2AEE text45 CODE >12:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\nf_fputc.c
 2B12 text45 CODE >13:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\nf_fputc.c
@@ -479,9 +479,9 @@ AC intcodelo CODE >48:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
 2924 text36 CODE >92:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
 2938 text36 CODE >103:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
 294C text36 CODE >104:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
-385E text35 CODE >142:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
-385E text35 CODE >145:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
-3860 text35 CODE >146:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+3856 text35 CODE >142:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+3856 text35 CODE >145:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+3858 text35 CODE >146:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
 262C text34 CODE >20:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
 262E text34 CODE >23:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
 2632 text34 CODE >24:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
@@ -531,13 +531,12 @@ AC intcodelo CODE >48:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
 3824 text32 CODE >108:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
 3828 text32 CODE >109:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
 3836 text32 CODE >110:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
-3838 text31 CODE >124:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
-3838 text31 CODE >127:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
-3840 text31 CODE >128:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
-3842 text31 CODE >129:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
-385A text30 CODE >131:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
-385A text30 CODE >133:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
-385C text30 CODE >134:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+3852 text31 CODE >124:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+3852 text31 CODE >128:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+3854 text31 CODE >129:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+384E text30 CODE >131:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+384E text30 CODE >133:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+3850 text30 CODE >134:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
 353E text29 CODE >10:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\adc.c
 3540 text29 CODE >13:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\adc.c
 3550 text29 CODE >15:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\adc.c
@@ -550,14 +549,14 @@ AC intcodelo CODE >48:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
 3582 text29 CODE >39:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\adc.c
 3584 text29 CODE >41:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\adc.c
 3586 text29 CODE >42:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\adc.c
-3844 text28 CODE >136:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
-3844 text28 CODE >139:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
-384C text28 CODE >140:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
-384E text27 CODE >25:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
-384E text27 CODE >30:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
-3850 text27 CODE >31:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
-3852 text27 CODE >32:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
-3854 text27 CODE >33:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
+3838 text28 CODE >136:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+3838 text28 CODE >139:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+3840 text28 CODE >140:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+3842 text27 CODE >25:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
+3842 text27 CODE >30:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
+3844 text27 CODE >31:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
+3846 text27 CODE >32:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
+3848 text27 CODE >33:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\app.c
 2C7A text26 CODE >31:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\flex_lcd.c
 2C7A text26 CODE >33:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\flex_lcd.c
 2C7C text26 CODE >34:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\flex_lcd.c
@@ -969,9 +968,9 @@ CA8 text17 CODE >205:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common
 1A1A text12 CODE >83:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\adc.c
 1A46 text12 CODE >84:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\adc.c
 1A5E text12 CODE >85:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\adc.c
-3856 text11 CODE >148:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
-3856 text11 CODE >150:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
-3858 text11 CODE >151:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+384A text11 CODE >148:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+384A text11 CODE >150:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
+384C text11 CODE >151:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
 3284 text10 CODE >154:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
 3284 text10 CODE >157:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
 32A6 text10 CODE >158:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\servo.c
@@ -1072,42 +1071,42 @@ CA8 text17 CODE >205:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common
 3746 text0 CODE >17:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
 3748 text0 CODE >18:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
 374A text0 CODE >19:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-374E text0 CODE >24:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
-35CE cinit CODE >2927:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35CE cinit CODE >2929:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35CE cinit CODE >2932:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35CE cinit CODE >2968:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35D0 cinit CODE >2969:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35D2 cinit CODE >2970:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35D4 cinit CODE >2971:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35D6 cinit CODE >2972:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35D8 cinit CODE >2973:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35DA cinit CODE >2974:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35DE cinit CODE >2975:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35E2 cinit CODE >2976:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35E2 cinit CODE >2977:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35E4 cinit CODE >2978:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35E8 cinit CODE >2979:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35EA cinit CODE >2980:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35EC cinit CODE >2981:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35EE cinit CODE >2985:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35F2 cinit CODE >2986:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35F4 cinit CODE >2987:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35F4 cinit CODE >2988:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35F6 cinit CODE >2989:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35F8 cinit CODE >2990:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35FA cinit CODE >2993:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35FC cinit CODE >2994:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-35FE cinit CODE >2995:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-3600 cinit CODE >2996:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-3602 cinit CODE >2997:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-3604 cinit CODE >3003:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-3604 cinit CODE >3005:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-3606 cinit CODE >3006:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-3608 cinit CODE >3008:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-360A cinit CODE >3009:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-360C cinit CODE >3010:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
-360E cinit CODE >3011:C:\Users\Emmanuel\AppData\Local\Temp\s9b4.s
+374E text0 CODE >22:C:\Users\Emmanuel\Documents\Test\SICCV\SICCV.X\main.c
+35CE cinit CODE >2927:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35CE cinit CODE >2929:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35CE cinit CODE >2932:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35CE cinit CODE >2968:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35D0 cinit CODE >2969:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35D2 cinit CODE >2970:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35D4 cinit CODE >2971:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35D6 cinit CODE >2972:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35D8 cinit CODE >2973:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35DA cinit CODE >2974:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35DE cinit CODE >2975:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35E2 cinit CODE >2976:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35E2 cinit CODE >2977:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35E4 cinit CODE >2978:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35E8 cinit CODE >2979:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35EA cinit CODE >2980:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35EC cinit CODE >2981:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35EE cinit CODE >2985:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35F2 cinit CODE >2986:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35F4 cinit CODE >2987:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35F4 cinit CODE >2988:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35F6 cinit CODE >2989:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35F8 cinit CODE >2990:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35FA cinit CODE >2993:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35FC cinit CODE >2994:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+35FE cinit CODE >2995:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+3600 cinit CODE >2996:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+3602 cinit CODE >2997:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+3604 cinit CODE >3003:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+3604 cinit CODE >3005:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+3606 cinit CODE >3006:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+3608 cinit CODE >3008:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+360A cinit CODE >3009:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+360C cinit CODE >3010:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
+360E cinit CODE >3011:C:\Users\Emmanuel\AppData\Local\Temp\sc70.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1120,22 +1119,22 @@ CA8 text17 CODE >205:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-_appTimerStart 3838 0 CODE 0 text31 dist/default/production\SICCV.X.production.o
+_appTimerStart 3852 0 CODE 0 text31 dist/default/production\SICCV.X.production.o
 setServo@pulsos B 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 __LdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\SICCV.X.production.o
 Lcd_Init@i B 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\SICCV.X.production.o
-__Hspace_0 3864 0 ABS 0 - dist/default/production\SICCV.X.production.o
+__Hspace_0 385C 0 ABS 0 - dist/default/production\SICCV.X.production.o
 __Hspace_1 D9 0 ABS 0 - dist/default/production\SICCV.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\SICCV.X.production.o
 __Hspace_4 60000E 0 ABS 0 - dist/default/production\SICCV.X.production.o
 __end_of_appInit 35CE 0 CODE 0 text20 dist/default/production\SICCV.X.production.o
 __HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\SICCV.X.production.o
 _Lcd_Init 2C7A 0 CODE 0 text26 dist/default/production\SICCV.X.production.o
-_appCounterInit 3844 0 CODE 0 text28 dist/default/production\SICCV.X.production.o
-_appCounterStop 3856 0 CODE 0 text11 dist/default/production\SICCV.X.production.o
+_appCounterInit 3838 0 CODE 0 text28 dist/default/production\SICCV.X.production.o
+_appCounterStop 384A 0 CODE 0 text11 dist/default/production\SICCV.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\SICCV.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\SICCV.X.production.o
 __end_of_adcGetValue 36D2 0 CODE 0 text14 dist/default/production\SICCV.X.production.o
 __end_of_Lcd_Init 2D3A 0 CODE 0 text26 dist/default/production\SICCV.X.production.o
@@ -1148,7 +1147,7 @@ _RCIF 7CF5 0 ABS 0 - dist/default/production\SICCV.X.production.o
 _TMR0 FD6 0 ABS 0 - dist/default/production\SICCV.X.production.o
 _TMR2 FCC 0 ABS 0 - dist/default/production\SICCV.X.production.o
 _TMR3 FB2 0 ABS 0 - dist/default/production\SICCV.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
+___sp 0 0 STACK 2 stack C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
 _atoi 1DC2 0 CODE 0 text50 dist/default/production\SICCV.X.production.o
 _dbuf 64 0 BANK0 1 bssBANK0 dist/default/production\SICCV.X.production.o
 _dtoa 13B0 0 CODE 0 text41 dist/default/production\SICCV.X.production.o
@@ -1162,7 +1161,7 @@ btemp 58 0 COMRAM 1 temp dist/default/production\SICCV.X.production.o
 pad@i 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 pad@p 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 pad@w 20 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
-start BC 0 CODE 0 init C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
+start BC 0 CODE 0 init C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
 ___aomod@counter 17 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 ___flmul@aexp 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 ___flmul@bexp 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
@@ -1197,15 +1196,15 @@ ttemp6 5C 0 COMRAM 1 temp dist/default/production\SICCV.X.production.o
 ttemp7 60 0 COMRAM 1 temp dist/default/production\SICCV.X.production.o
 __size_of_vfpfcnvrt 0 0 ABS 0 - dist/default/production\SICCV.X.production.o
 __size_of_appSubGiveElemts 0 0 ABS 0 - dist/default/production\SICCV.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
-intlevel0 0 0 CODE 0 text C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
-intlevel1 0 0 CODE 0 text C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
-intlevel2 0 0 CODE 0 text C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
-intlevel3 0 0 CODE 0 text C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
+__accesstop 60 0 ABS 0 - C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
+intlevel0 0 0 CODE 0 text C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
+intlevel1 0 0 CODE 0 text C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
+intlevel2 0 0 CODE 0 text C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
+intlevel3 0 0 CODE 0 text C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\SICCV.X.production.o
 Lcd_Chr_CP@data 9 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
-__end_of_appCounterInit 384E 0 CODE 0 text28 dist/default/production\SICCV.X.production.o
-__end_of_appCounterStop 385A 0 CODE 0 text11 dist/default/production\SICCV.X.production.o
+__end_of_appCounterInit 3842 0 CODE 0 text28 dist/default/production\SICCV.X.production.o
+__end_of_appCounterStop 384E 0 CODE 0 text11 dist/default/production\SICCV.X.production.o
 setServo@pin C 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\SICCV.X.production.o
 __end_of_confirmacion 353E 0 CODE 0 text6 dist/default/production\SICCV.X.production.o
@@ -1218,8 +1217,8 @@ _vfpfcnvrt 1044 0 CODE 0 text40 dist/default/production\SICCV.X.production.o
 dtoa@fp 22 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 ___wmul@multiplicand 9 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 __size_of_appTimerStart 0 0 ABS 0 - dist/default/production\SICCV.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
 ?_memcmp 7 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 sendData@i F 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\SICCV.X.production.o
@@ -1252,7 +1251,7 @@ __size_of_isspace 0 0 ABS 0 - dist/default/production\SICCV.X.production.o
 _adcInit 353E 0 CODE 0 text29 dist/default/production\SICCV.X.production.o
 ___aodiv@quotient 19 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 ?_strlen 7 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
-__end_of_appTimerStart 3844 0 CODE 0 text31 dist/default/production\SICCV.X.production.o
+__end_of_appTimerStart 3856 0 CODE 0 text31 dist/default/production\SICCV.X.production.o
 ___aomod@dividend 7 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 __end_of_Lcd_Chr_CP 2502 0 CODE 0 text57 dist/default/production\SICCV.X.production.o
 __size_of_fputc 0 0 ABS 0 - dist/default/production\SICCV.X.production.o
@@ -1300,7 +1299,7 @@ __size_of_Lcd_Out 0 0 ABS 0 - dist/default/production\SICCV.X.production.o
 fputc@fp 9 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 fputs@fp 12 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 _appTimerInit 3774 0 CODE 0 text24 dist/default/production\SICCV.X.production.o
-_appTimerStop 385A 0 CODE 0 text30 dist/default/production\SICCV.X.production.o
+_appTimerStop 384E 0 CODE 0 text30 dist/default/production\SICCV.X.production.o
 teclado@valor 7 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 vfpfcnvrt@done 9C 0 BANK0 1 cstackBANK0 dist/default/production\SICCV.X.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\SICCV.X.production.o
@@ -1333,7 +1332,7 @@ __Htext9 0 0 ABS 0 text9 dist/default/production\SICCV.X.production.o
 __size_of___xxtofl 0 0 ABS 0 - dist/default/production\SICCV.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\SICCV.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\SICCV.X.production.o
-__smallconst 800 0 SMALLCONST 0 smallconst C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
+__smallconst 800 0 SMALLCONST 0 smallconst C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
 _setServoAngle 262C 0 CODE 0 text34 dist/default/production\SICCV.X.production.o
 Lcd_Out@data 10 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 ___xxtofl@arg 15 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
@@ -1416,7 +1415,7 @@ isspace@c 7 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\SICCV.X.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\SICCV.X.production.o
 _PR2 FCB 0 ABS 0 - dist/default/production\SICCV.X.production.o
-__S0 3864 0 ABS 0 - dist/default/production\SICCV.X.production.o
+__S0 385C 0 ABS 0 - dist/default/production\SICCV.X.production.o
 __S1 D9 0 ABS 0 - dist/default/production\SICCV.X.production.o
 __S2 0 0 ABS 0 - dist/default/production\SICCV.X.production.o
 __S4 0 0 ABS 0 - dist/default/production\SICCV.X.production.o
@@ -1444,7 +1443,7 @@ __end_of_pad 2C7A 0 CODE 0 text42 dist/default/production\SICCV.X.production.o
 int_func 2F4C 0 CODE 0 intcode_body dist/default/production\SICCV.X.production.o
 _appElemts 3284 0 CODE 0 text10 dist/default/production\SICCV.X.production.o
 __end_of_appTimerInit 37A2 0 CODE 0 text24 dist/default/production\SICCV.X.production.o
-__end_of_appTimerStop 385E 0 CODE 0 text30 dist/default/production\SICCV.X.production.o
+__end_of_appTimerStop 3852 0 CODE 0 text30 dist/default/production\SICCV.X.production.o
 __Lintentry 0 0 ABS 0 intentry dist/default/production\SICCV.X.production.o
 ___lldiv@divisor B 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 __Hramtop 800 0 RAM 0 ramtop dist/default/production\SICCV.X.production.o
@@ -1526,7 +1525,7 @@ _memset 20DA 0 CODE 0 text54 dist/default/production\SICCV.X.production.o
 pad@buf 19 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 appADC@lm35val BA 0 BANK0 1 cstackBANK0 dist/default/production\SICCV.X.production.o
 __ptext10 3284 0 CODE 0 text10 dist/default/production\SICCV.X.production.o
-__ptext11 3856 0 CODE 0 text11 dist/default/production\SICCV.X.production.o
+__ptext11 384A 0 CODE 0 text11 dist/default/production\SICCV.X.production.o
 __ptext12 1878 0 CODE 0 text12 dist/default/production\SICCV.X.production.o
 __ptext13 1C14 0 CODE 0 text13 dist/default/production\SICCV.X.production.o
 __ptext14 3696 0 CODE 0 text14 dist/default/production\SICCV.X.production.o
@@ -1542,15 +1541,15 @@ __ptext23 380C 0 CODE 0 text23 dist/default/production\SICCV.X.production.o
 __ptext24 3774 0 CODE 0 text24 dist/default/production\SICCV.X.production.o
 __ptext25 3122 0 CODE 0 text25 dist/default/production\SICCV.X.production.o
 __ptext26 2C7A 0 CODE 0 text26 dist/default/production\SICCV.X.production.o
-__ptext27 384E 0 CODE 0 text27 dist/default/production\SICCV.X.production.o
-__ptext28 3844 0 CODE 0 text28 dist/default/production\SICCV.X.production.o
+__ptext27 3842 0 CODE 0 text27 dist/default/production\SICCV.X.production.o
+__ptext28 3838 0 CODE 0 text28 dist/default/production\SICCV.X.production.o
 __ptext29 353E 0 CODE 0 text29 dist/default/production\SICCV.X.production.o
-__ptext30 385A 0 CODE 0 text30 dist/default/production\SICCV.X.production.o
-__ptext31 3838 0 CODE 0 text31 dist/default/production\SICCV.X.production.o
+__ptext30 384E 0 CODE 0 text30 dist/default/production\SICCV.X.production.o
+__ptext31 3852 0 CODE 0 text31 dist/default/production\SICCV.X.production.o
 __ptext32 3824 0 CODE 0 text32 dist/default/production\SICCV.X.production.o
 __ptext33 37A2 0 CODE 0 text33 dist/default/production\SICCV.X.production.o
 __ptext34 262C 0 CODE 0 text34 dist/default/production\SICCV.X.production.o
-__ptext35 385E 0 CODE 0 text35 dist/default/production\SICCV.X.production.o
+__ptext35 3856 0 CODE 0 text35 dist/default/production\SICCV.X.production.o
 __ptext36 2850 0 CODE 0 text36 dist/default/production\SICCV.X.production.o
 __ptext37 168E 0 CODE 0 text37 dist/default/production\SICCV.X.production.o
 __ptext38 3406 0 CODE 0 text38 dist/default/production\SICCV.X.production.o
@@ -1561,7 +1560,7 @@ __ptext42 2BB8 0 CODE 0 text42 dist/default/production\SICCV.X.production.o
 __ptext43 370A 0 CODE 0 text43 dist/default/production\SICCV.X.production.o
 __ptext44 3612 0 CODE 0 text44 dist/default/production\SICCV.X.production.o
 __ptext45 2AEE 0 CODE 0 text45 dist/default/production\SICCV.X.production.o
-__ptext46 3862 0 CODE 0 text46 dist/default/production\SICCV.X.production.o
+__ptext46 385A 0 CODE 0 text46 dist/default/production\SICCV.X.production.o
 __ptext47 3656 0 CODE 0 text47 dist/default/production\SICCV.X.production.o
 __ptext48 2250 0 CODE 0 text48 dist/default/production\SICCV.X.production.o
 __ptext49 1F52 0 CODE 0 text49 dist/default/production\SICCV.X.production.o
@@ -1601,15 +1600,15 @@ ___fldiv@grs 45 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.producti
 ___fldiv@rem 3E 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 _adcGetValue 3696 0 CODE 0 text14 dist/default/production\SICCV.X.production.o
 Lcd_Out@buffer B 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
-_appISRConfig 384E 0 CODE 0 text27 dist/default/production\SICCV.X.production.o
+_appISRConfig 3842 0 CODE 0 text27 dist/default/production\SICCV.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\SICCV.X.production.o
 _strlen 370A 0 CODE 0 text43 dist/default/production\SICCV.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\SICCV.X.production.o
 _readUART 294E 0 CODE 0 text3 dist/default/production\SICCV.X.production.o
 ___fldiv@new_exp 43 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 __size_of_vfprintf 0 0 ABS 0 - dist/default/production\SICCV.X.production.o
-stackhi 7FF 0 ABS 0 - C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
-stacklo D9 0 ABS 0 - C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
+stackhi 7FF 0 ABS 0 - C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
+stacklo D9 0 ABS 0 - C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\SICCV.X.production.o
 appSubGetData@inout BC 0 BANK0 1 cstackBANK0 dist/default/production\SICCV.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\SICCV.X.production.o
@@ -1618,7 +1617,7 @@ _ADCON0bits FC2 0 ABS 0 - dist/default/production\SICCV.X.production.o
 _ADCON1bits FC1 0 ABS 0 - dist/default/production\SICCV.X.production.o
 _ADCON2bits FC0 0 ABS 0 - dist/default/production\SICCV.X.production.o
 __end_of_readUART 2A22 0 CODE 0 text3 dist/default/production\SICCV.X.production.o
-__end_of_appCounterStart 3862 0 CODE 0 text35 dist/default/production\SICCV.X.production.o
+__end_of_appCounterStart 385A 0 CODE 0 text35 dist/default/production\SICCV.X.production.o
 __end_of_sendinformation 2DF6 0 CODE 0 text1 dist/default/production\SICCV.X.production.o
 __end_of_setServoAngle 2748 0 CODE 0 text34 dist/default/production\SICCV.X.production.o
 ?_vfpfcnvrt 46 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
@@ -1737,7 +1736,7 @@ __Ltext55 0 0 ABS 0 text55 dist/default/production\SICCV.X.production.o
 __Ltext56 0 0 ABS 0 text56 dist/default/production\SICCV.X.production.o
 __Ltext57 0 0 ABS 0 text57 dist/default/production\SICCV.X.production.o
 appElemts@data B8 0 BANK0 1 cstackBANK0 dist/default/production\SICCV.X.production.o
-__ramtop 800 0 RAM 0 ramtop C:\Users\Emmanuel\AppData\Local\Temp\s9b4.o
+__ramtop 800 0 RAM 0 ramtop C:\Users\Emmanuel\AppData\Local\Temp\sc70.o
 _sprintf 3406 0 CODE 0 text38 dist/default/production\SICCV.X.production.o
 Lcd_Cmd@data 9 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 _vfprintf 334C 0 CODE 0 text39 dist/default/production\SICCV.X.production.o
@@ -1748,13 +1747,13 @@ appSubGetData@data_Inout B8 0 BANK0 1 cstackBANK0 dist/default/production\SICCV.
 __size_of_appGetElements 0 0 ABS 0 - dist/default/production\SICCV.X.production.o
 sprintf@ap B0 0 BANK0 1 cstackBANK0 dist/default/production\SICCV.X.production.o
 _isdigit 36D2 0 CODE 0 text52 dist/default/production\SICCV.X.production.o
-_appCounterStart 385E 0 CODE 0 text35 dist/default/production\SICCV.X.production.o
+_appCounterStart 3856 0 CODE 0 text35 dist/default/production\SICCV.X.production.o
 _sendinformation 2D3A 0 CODE 0 text1 dist/default/production\SICCV.X.production.o
 ___fltol@sign1 94 0 BANK0 1 cstackBANK0 dist/default/production\SICCV.X.production.o
 _isspace 3458 0 CODE 0 text51 dist/default/production\SICCV.X.production.o
 setServoAngle@angle A 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
 __psmallconst 800 0 SMALLCONST 0 smallconst dist/default/production\SICCV.X.production.o
-__end_of_appISRConfig 3856 0 CODE 0 text27 dist/default/production\SICCV.X.production.o
+__end_of_appISRConfig 384A 0 CODE 0 text27 dist/default/production\SICCV.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\SICCV.X.production.o
 __end_of_vfprintf 33AE 0 CODE 0 text39 dist/default/production\SICCV.X.production.o
 __size_of_appInit 0 0 ABS 0 - dist/default/production\SICCV.X.production.o
@@ -1800,7 +1799,7 @@ _RCREG FAE 0 ABS 0 - dist/default/production\SICCV.X.production.o
 _SPBRG FAF 0 ABS 0 - dist/default/production\SICCV.X.production.o
 _TRISB F93 0 ABS 0 - dist/default/production\SICCV.X.production.o
 _TXREG FAD 0 ABS 0 - dist/default/production\SICCV.X.production.o
-__end_of_putch 3864 0 CODE 0 text46 dist/default/production\SICCV.X.production.o
+__end_of_putch 385C 0 CODE 0 text46 dist/default/production\SICCV.X.production.o
 __HRAM 0 0 ABS 0 - dist/default/production\SICCV.X.production.o
 __Hbss 0 0 RAM 1 bss dist/default/production\SICCV.X.production.o
 __Hram 0 0 ABS 0 ram dist/default/production\SICCV.X.production.o
@@ -1814,7 +1813,7 @@ _datos C0 0 BANK0 1 dataBANK0 dist/default/production\SICCV.X.production.o
 _flags 55 0 COMRAM 1 bssCOMRAM dist/default/production\SICCV.X.production.o
 _fputc 2AEE 0 CODE 0 text45 dist/default/production\SICCV.X.production.o
 _fputs 3612 0 CODE 0 text44 dist/default/production\SICCV.X.production.o
-_putch 3862 0 CODE 0 text46 dist/default/production\SICCV.X.production.o
+_putch 385A 0 CODE 0 text46 dist/default/production\SICCV.X.production.o
 _appSubGiveElemts 3824 0 CODE 0 text32 dist/default/production\SICCV.X.production.o
 _width 62 0 BANK0 1 bssBANK0 dist/default/production\SICCV.X.production.o
 ?_isdigit 7 0 COMRAM 1 cstackCOMRAM dist/default/production\SICCV.X.production.o
@@ -1873,7 +1872,7 @@ __size_of_sendinformation 0 0 ABS 0 - dist/default/production\SICCV.X.production
 %SEGMENTS
 intcodelo 0 18 18 A8 1
 text17 0 880 880 2F8B 1
-text23 0 380C 380C 58 1
+text23 0 380C 380C 50 1
 cstackCOMRAM 1 1 1 58 1
 reset_vec 0 0 0 4 1
 bssBANK0 1 60 60 79 1
