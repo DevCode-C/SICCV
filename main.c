@@ -34,7 +34,7 @@ void __interrupt(low_priority) isrL(void)
     {
         TMR3IF = 0;
         datos.counter++;
-        if((datos.counter == 5) && (datos.state == 0 || datos.state == 2))
+        if((datos.counter == 2) && (datos.state == 0 || datos.state == 2))
         {
             datos.counter = 0;
             datos.nextFunc = appStateRecolectData;

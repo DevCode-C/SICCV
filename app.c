@@ -40,6 +40,7 @@ void appStateRecolectData(void)
     appElemts(&datos);
     if(datos.state == 2)
     {
+        LATAbits.LA5 = 1;
         if(datos.elements == TMR0)
         {
             datos.elements = (int16_t)TMR0;
@@ -64,6 +65,7 @@ void appStateInitial(void)
     else if(PORTAbits.RA3)
     {
         setServo(D0,10,0);
+        TMR3IF = 1;
     }
 }
 
@@ -105,7 +107,6 @@ void appSubGiveElemts(StateMachine *data)   //Funcionn donde se inicia el contad
 {
     appCounterStart();
     setServo(D90,10,2);
-    LATAbits.LA5 = 1;
 }
 
 void warning(void)
@@ -139,6 +140,7 @@ void sendinformation(void)
     sprintf((char *)datos.display,"@");
     sendData(&datos);
     
+    appTimerStart();
     memset(datos.display,0,sizeof(datos.display));
     datos.state = IDLE;
     datos.nextFunc = appStateInitial;

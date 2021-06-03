@@ -38,15 +38,13 @@ void uart_Init(uint32_t baud)
 
 void readUART(void)
 {
-    LCD_CLEAR_DATA();
-    LCD_OUT_TXTB(1,0,puerto);
+//    LCD_CLEAR_DATA();
+//    LCD_OUT_TXTB(1,0,puerto);
     if(!memcmp(puerto,"Informacion@",12))
     {
         memset(puerto,0,sizeof(puerto));
-        PIE1bits.RCIE = 1;
-        datos.state = 10;
+        datos.state = IDLE;
         datos.nextFunc = sendinformation;
-        LCD_CLEAR_DATA();
     }
     else if (!memcmp(puerto,"Activado@",9))
     {
