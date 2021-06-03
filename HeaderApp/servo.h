@@ -23,5 +23,5 @@
     void appCounterInit(uint16_t reload);
     void appCounterStart(void);
     void appCounterStop(void);
-    void appElemts(const int16_t * elements);
+    void appElemts(StateMachine *data);
 #endif

@@ -8,7 +8,8 @@
 #include "HeaderApp/main.h"
 #include "HeaderApp/app.h"
 
-StateMachine datos = {0,0,0,0,0,{0},appStateInitial};
+StateMachine datos = {0,0,IDLE_CONFIRMATION,0,0,{0},confirmacion};
+uint8_t puerto[16] = {0}; 
 void main(void)
 {
     TRISB = 0xF0;
@@ -18,9 +19,10 @@ void main(void)
     appInit();
     while(1)                  
     {
-        LATAbits.LA2= !LATAbits.LA2;
-        __delay_ms(100);
+//        LATAbits.LA2= !LATAbits.LA2;
+//        __delay_ms(100);
         datos.nextFunc();
+//        sendinformation();
         
     }
     return;
@@ -46,6 +48,7 @@ void __interrupt(low_priority) isrL(void)
 }
 void __interrupt(high_priority) isrH(void)
 {
+    static uint8_t counter = 0;
     if(TMR0IE && TMR0IF)
     {
         TMR0IF = 0;
@@ -53,10 +56,18 @@ void __interrupt(high_priority) isrH(void)
         datos.nextFunc = warning;
     }
     if(RCIF && RCIE)
-    {
-        datos.state = 10;
-        datos.nextFunc = warning;
-        uint8_t read = RCREG;
+    {   
+        puerto[counter] = RCREG;
+        if(puerto[counter] != '@')
+        {
+            counter ++;
+        }
+        else
+        {
+            datos.state = 4;
+            datos.nextFunc = readUART;
+            counter = 0;
+        }
     }
 }
 

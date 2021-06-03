@@ -18,7 +18,7 @@ void appInit(void)
     appCounterInit(0);
     servoInit();
     uart_Init(9600);
-    appTimerStart();
+    setServo(D0,10,0);
     
     
 }
@@ -36,7 +36,8 @@ void appStateRecolectData(void)
 {
     appADC(&datos);
     appBat(&datos);
-    appElemts(&datos.elements);
+//    appElemts(&datos.elements);
+    appElemts(&datos);
     if(datos.state == 2)
     {
         if(datos.elements == TMR0)
@@ -109,11 +110,36 @@ void appSubGiveElemts(StateMachine *data)   //Funcionn donde se inicia el contad
 
 void warning(void)
 {
+    appTimerStop();
     LCD_CLEAR_DATA();
-//    LATAbits.LA5 = 0;
-    while(1)
-    {
-        LCD_OUT_TXT(1,0,"Sin vacunas");
-        LCD_OUT_TXT(2,0,"Recarga Porfavor");
-    }
+    LCD_OUT_TXT(1,0,"Sin vacunas");
+    LCD_OUT_TXT(2,0,"Recarga Porfavor");
+    setServo(D180,10,1);
+    while(datos.state == 10);
+    appTimerStart();
+}
+
+void confirmacion(void)
+{
+    LCD_OUT_TXT(1,0,"Confirmacion");
+    while(datos.state == IDLE_CONFIRMATION);
+    LCD_CLEAR_DATA();
+    appTimerStart();
+}
+
+void sendinformation(void)
+{
+    appADC(&datos);
+    sendData(&datos);
+    appBat(&datos);
+    sendData(&datos);
+    appElemts(&datos);
+    sendData(&datos);
+    memset(datos.display,0,sizeof(datos.display));
+    sprintf((char *)datos.display,"@");
+    sendData(&datos);
+    
+    memset(datos.display,0,sizeof(datos.display));
+    datos.state = IDLE;
+    datos.nextFunc = appStateInitial;
 }

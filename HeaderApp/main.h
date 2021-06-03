@@ -10,6 +10,7 @@
 #include "teclado.h"
 #include "servo.h"
 #include "NewTypes.h"
+#include "UART.h"
 //#define _XTAL_FREQ 12000000
 
 

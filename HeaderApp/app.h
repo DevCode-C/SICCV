@@ -18,5 +18,8 @@
     void warning(void);
     
     void appStateInitial(void);
+    void confirmacion(void);
+    
+    void sendinformation(void);
 
 #endif

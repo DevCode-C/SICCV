@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #define _XTAL_FREQ 12000000
 #define CAPACITY    510
+#define IDLE                0
+#define IDLE_CONFIRMATION   8
 
 typedef void(*prtFuncNext)(void);
 

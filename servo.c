@@ -1,4 +1,5 @@
 #include "HeaderApp/servo.h"
+#include "string.h"
 
 void servoInit(void)
 {
@@ -122,6 +123,7 @@ void appTimerInit(void)
 }
 void appTimerStart(void)
 {
+//    TMR3L = 0;
     TMR3 = 20536;
     T3CONbits.TMR3ON = 1;
 }
@@ -148,9 +150,13 @@ void appCounterStop(void)
     T0CONbits.TMR0ON = 0;
 }
 
-void appElemts(const int16_t * elements)
+//void appElemts(const int16_t * elements)
+void appElemts(StateMachine *data)
 {
-    uint8_t dataout[6] = {0};
-    sprintf((char *)dataout,"#:%d",(N_ELEMENTS - (TMR0)));
-    LCD_OUT_TXTB(2,10,dataout);
+//    uint8_t dataout[6] = {0};
+    memset(data->display,0,sizeof(data->display));
+    sprintf((char *)data->display,"#:%d",(N_ELEMENTS - (TMR0)));
+    LCD_OUT_TXTB(2,10,data->display);
 }
+
+
