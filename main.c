@@ -27,13 +27,15 @@ void main(void)
 void __interrupt(low_priority) isrL(void)
 {
     static uint16_t bloqueo = 0;
+    static uint8_t tTimerCounter = 0;
     if(TMR3IE && TMR3IF)
     {
-        datos.counter++;
+        
+        tTimerCounter++;
         bloqueo++;
-        if((datos.counter == 2) && (datos.state == 0 || datos.state == 2))
+        if((tTimerCounter == 2) && (datos.state == IDLE || datos.state == 2))
         {
-            datos.counter = 0;
+            tTimerCounter = 0;
             datos.nextFunc = appStateRecolectData;
         }
         else if(bloqueo == 1000)
