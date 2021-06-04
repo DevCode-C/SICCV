@@ -26,21 +26,30 @@ void main(void)
 
 void __interrupt(low_priority) isrL(void)
 {
+    static uint16_t bloqueo = 0;
     if(TMR3IE && TMR3IF)
     {
-        TMR3IF = 0;
         datos.counter++;
+        bloqueo++;
         if((datos.counter == 2) && (datos.state == 0 || datos.state == 2))
         {
             datos.counter = 0;
             datos.nextFunc = appStateRecolectData;
+        }
+        else if(bloqueo == 1000)
+        {
+            bloqueo = 0;
+            datos.state = IDLE_CONFIRMATION;
+            datos.nextFunc = confirmacion;
         }
         else if(datos.state == 1)
         {
             datos.nextFunc = appGetElements;
         }
         TMR3 = 20536;
+        TMR3IF = 0;
     }
+    
 }
 void __interrupt(high_priority) isrH(void)
 {
